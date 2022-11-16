@@ -7,7 +7,7 @@ typedef struct{
 
 typedef struct{
 	char tipeKendaraan; // A
-	int nomorPlat;
+	char nomorPlat;
 	Jam jamMasuk; // 8:35:59
 	Jam jamKeluar; // 10:00:00
 }Kendaraan;
@@ -129,9 +129,10 @@ B (Mobil)   Jam Berikutnya         3500
 int main(){
 	Kendaraan daftarKendaraan[100]; // maksimal jumlah kendaraan yang diparkir adalah 100 untuk mobil dan motor
 	Kendaraan kendaraan;
-	int opsi, NPlat, hargaParkir, posisiKendaraanKeluar;
+	int opsi, hargaParkir, posisiKendaraanKeluar;
 	int ketemu, lagi; // 0 : false, 1 : true
 	int sizeKendaraan = 0;
+	char NPlat;
 	Jam jKluar;
 	
 	cetakMenuSistemKendaraan();
@@ -179,7 +180,8 @@ int main(){
 
 void readKendaraanMasuk(Kendaraan *Kdrn){
 	char type;
-	int nPlat, hour, minute, second;
+	int hour, minute, second;
+	char nPlat;
 	Jam JMasuk, JKeluar;
 	
 	do {
@@ -188,7 +190,7 @@ void readKendaraanMasuk(Kendaraan *Kdrn){
 	}while(type !='A' && type != 'B');
 	
 	printf("Nomor Plat: ");
-	scanf("%d", &nPlat);
+	scanf(" %[^\n]%*c", &nPlat);
 	
 	do {
 		printf("Jam Masuk (hh mm ss): ");
@@ -377,7 +379,7 @@ void hapusKendaraanByPosisi(Kendaraan daftarKendaraan[], int posisiKdrn, int *si
 
 void cetakKendaraanKeluar(Kendaraan Kdrn, int hargaParkir){
 	printf("Tipe Kendaraan : %c \n", Kdrn.tipeKendaraan );
-	printf("Nomor Plat : %d \n", Kdrn.nomorPlat );
+	printf("Nomor Plat : %s \n", Kdrn.nomorPlat );
 	printf("Jam Masuk : %d : %d : %d \n", Kdrn.jamMasuk.hour, Kdrn.jamMasuk.minute, Kdrn.jamMasuk.second  );
 	printf("Jam Keluar : %d : %d : %d \n", Kdrn.jamKeluar.hour, Kdrn.jamKeluar.minute, Kdrn.jamKeluar.second  );
     printf("Harga Parkir : %d \n\n", hargaParkir);
