@@ -1,8 +1,15 @@
 int main(){
 	displayMenuBahasa();
 	scanf ("%d", &opsi);
-	if (opsi == 4){
-		displayMenuPin();
+	while (opsi == 4 || opsi == 5){
+		switch (opsi){
+			case 4 : displayMenuPinId();
+				break;
+			case 5 : 
+			displayMenuPinEng();
+		}
+		displayMenuBahasa();
+		scanf ("%d", &opsi);
 	}
 	bacaPin(inputPin);
 	Cek_validitas(&benar);
