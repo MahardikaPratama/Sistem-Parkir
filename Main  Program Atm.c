@@ -860,7 +860,7 @@ void MenuInformasiSaldo(){
 	displayInformasiSaldo();
 	scanf("%d", &opsi);
 	switch (opsi){
-		case 5: MenuLainnya;
+		case 5: MenuLainnya();
 			break;
 		case 6: system("cls");
 			displayEnd();
