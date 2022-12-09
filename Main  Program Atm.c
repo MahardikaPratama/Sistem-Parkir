@@ -33,7 +33,6 @@ void konfirmasitrf();
 void MenuKonfirmasi();
 int cek_ValiditasNorek(int *Betul);
 int cek_ValiditasTransfer(int *Betul);
-int cek_ValiditasTransfer(int *Betul);
 void MenuPembayaran();
 void MenuInformasiSaldo();
 void MenuUbahPin();
@@ -67,8 +66,6 @@ void displayMenuTransfer();
 void displayProsesTransfer();
 void displaytransfergagal();
 void displaytransferberhasil();
-void displayLoading();
-void displayLimit();
 void displaykonfirmasitrf(int nominal);
 void displaygoodtransfer();
 void displayMenuPembayaran();
@@ -81,7 +78,10 @@ void displayMenuSaldo();
 void displayMenuUbahPin();
 void displayMenuMutasi();
 //Variabel Global
-int i, opsi, nominal, limitTarik=0;
+int i, opsi, nominal;
+int limitTarik=0, limittrf=0;
+int admin=3000;
+char No_Rek[21];
 unsigned int sleep (unsigned int seconds);
 
 int main(){
@@ -571,28 +571,172 @@ void MenuLainnya(){
         	goto KEMBALI;
     }
 }
+
 void MenuTransfer(){
-	system("cls");
-	displayMenuTransfer();
-	KEMBALI:
-	bacaNoRek(&NoRek);
-	if (No_Rekening != NULL){
-		system("cls");
-		displayMasukkanNominal();
-		bacaNominal();
-		cek_ValiditasTransfer();
-		system("cls");
-		displayProsesTransfer();
-		system("cls");
-		displayBerhasil();
+ 	char konfirmasi;
+	int Benar=0;
+ 	int Sama;
+    
+ 	system("cls");
+ 	displayMenuTransfer();
+ 	gotoxy(55,7);
+ 	gets (No_Rek);
+	cek_ValiditasNorek(&Sama);
+	if(Sama==1){
+ 	gotoxy(90,24);
+	scanf("%d",&opsi);
+	switch(opsi){
+		case 4 : 
+		        system("cls");
+		        displayProsesTransfer();
+		    	gotoxy(56,8);
+             		scanf("%d", &nominal);
+             		limittrf=limittrf+nominal;
+			cek_ValiditasTransfer( &Benar);
+		        if (Benar==1){
+             			if (nominal>=50000){
+             				user.total_saldo=user.total_saldo-nominal-admin;
+             				system("cls");
+             				displaykonfirmasitrf(nominal);
+             				konfirmasitrf();
+             				displaygoodtransfer();
+             				gotoxy(50,15);
+             				printf("SISA SALDO ANDA : %d", user.total_saldo);
+             				MenuKonfirmasi();
+             				DO:
+					gotoxy(88, 24);
+					konfirmasi = getch();
+					switch(konfirmasi){
+						case '5' : 
+							MenuTransfer();
+							break;
+						case '6' : 	
+							system("cls");
+							displayEnd();
+							sleep(5);
+							exit(0);
+						default:
+							goto DO;
+             				}
+				}	 
+		    	}
+			else {
+				if(user.total_saldo-nominal<10000){
+			    		system("cls");
+			    		displayLoading();
+			    		sleep(5);
+			    		system("cls");
+			    		displaytransfergagal();
+			    		DO2:
+					gotoxy(88, 24);
+					konfirmasi = getch();
+					switch(konfirmasi){
+						case '5' : 
+							MenuTransfer();
+							break;
+						case '6' : 	
+							system("cls");
+							displayEnd();
+							sleep(5);
+							exit(0);
+						default:
+							goto DO2;
+					}
+				}	
+				if(limittrf>1000000){
+					system("cls");
+					displayLoading();
+					sleep(5);
+					system("cls");
+					displayLimit();
+					DO3:
+					gotoxy(88, 24);
+					konfirmasi = getch();
+					switch(konfirmasi){
+						case '5' : 
+							MenuTransfer();
+							break;
+						case '6' : 	
+							system("cls");
+							displayEnd();
+							sleep(5);
+							exit(0);
+						default:
+							goto DO3;
+					}
+				}
+			}
+	        	break;
+		case 5 :  
+		 	MenuTransfer();
+			break;
+		default : 	        
+  			MenuTransfer();
+  			break;
 	}
-	else{
-		system("cls");
-		displayNoRekTidakAda();
-		goto KEMBALI;
-	}
+  	}
+ 	else {
+ 	MenuTransfer();
+ 	}
 }
 
+int cek_ValiditasNorek(int *Betul){
+	if((strcmp(No_Rek, penerima.No_Rekening)==0)&&user.total_saldo-nominal>=10000&&limittrf <=10000000){
+     		*Betul=1;
+ 	}
+    	else {
+		*Betul=0;
+	}
+	return *Betul;
+ }
+ 
+int cek_ValiditasTransfer(int *Betul){
+      	if(user.total_saldo-nominal>=10000&&limittrf <=1000000){
+ 	    	*Betul=1;
+    	}
+   	else {
+		*Betul=0;
+	}
+	return *Betul;	
+ }
+
+void MenuKonfirmasi(){
+ 	gotoxy(90,24);
+ 	scanf("%d", &opsi);
+ 	switch (opsi){
+ 		case 5 : 
+			system("cls");
+             		MenuTransfer();
+             		break;
+  	      	case 6:  
+			system("cls");
+			displayEnd();
+			sleep(5);
+			exit(0);
+        		break;
+		default : 
+			MenuKonfirmasi();		
+ 	}
+}
+
+void konfirmasitrf(){
+ 	gotoxy(90,24);
+ 	scanf("%d", &opsi);
+ 	switch (opsi){
+ 		case 5 : 
+			system("cls");
+             		displayLoading();
+             		sleep(5);
+             		system("cls");
+             		displaytransaksiberhasil();
+             		break;
+        	case 6 :    
+			MenuTransfer();
+		default :
+			konfirmasitrf();	
+	 }
+ 	
+ }
 void MenuPembayaran(){
 	system("cls");
 	displayMenuPembayaran();
@@ -997,3 +1141,103 @@ void displayMenuLainnya(){
 	printToxy(84,17,"MENU SEBELUMNYA");
 	printToxy(60,24,"\t Masukan pilihan anda :  ");
 }
+
+void displayMenuTransfer(){
+	header();
+	printToxy(44,3,"MASUKKAN NOMOR REKENING TUJUAN");
+	printToxy(43,5,"=================================");
+	printToxy(7,9,"[1] =>");
+	printToxy(49,8,"_ _ _ _ _ _ _ _ _ _ _");
+	printToxy(7,13,"[2] =>");
+	printToxy(7,17,"[3] =>");
+	printToxy(105,9,"<= [4]");
+	printToxy(90,9,"BENAR");
+	printToxy(105,13,"<= [5]");
+	printToxy(90,13,"SALAH");
+	printToxy(105,17,"<= [6]");
+	printToxy(60,24,"\t Masukan pilihan anda :  ");
+	
+ 	
+}
+
+ void displayProsesTransfer(){
+	header();
+	printToxy(48,3,"MASUKKAN JUMLAH NOMINAL");
+	printToxy(49,4,"YANG AKAN DITRANSFER ");
+	printToxy(43,5,"=================================");
+	printToxy(7,9,"[1] =>");
+	printToxy(52,8,"RP. ");
+	printToxy(7,13,"[2] =>");
+	printToxy(7,17,"[3] =>");
+	printToxy(105,9,"<= [4]");
+	printToxy(90,9,"BENAR");
+	printToxy(105,13,"<= [5]");
+	printToxy(90,13,"SALAH");
+	printToxy(105,17,"<= [6]");
+	printToxy(60,24,"\t Masukan pilihan anda :  ");
+
+}
+
+void displaytransfergagal(){
+	header();
+	printToxy(53,3,"MAAF TRANSFER GAGAL");
+	printToxy(40,4,"NO REKENING/SALDO ANDA SALAH/TIDAK MENCUKUPI ");
+	printToxy(45,5,"=================================");
+	printToxy(7,9,"[1] =>");
+	printToxy(7,13,"[2] =>");
+	printToxy(7,17,"[3] =>");
+	printToxy(105,9,"<= [4]");
+	printToxy(105,13,"<= [5]");
+	printToxy(50,13,"PASTIKAN SALDO ANDA CUKUP ");
+	printToxy(42,14,"DAN NO REKENING YANG ANDA MASUKKAN BENAR ");
+	printToxy(105,17,"<= [6]");
+	printToxy(90,17,"EXIT");
+	printToxy(60,24,"\t Masukan pilihan anda :  ");
+	
+}
+
+void displaygoodtransfer(){
+   header();
+	printToxy(50,3,"TRANSAKSI TELAH SELESAI");
+	printToxy(49,4,"PERLU TRANSAKSI YANG LAIN ?");
+	printToxy(45,5,"=================================");
+	printToxy(7,9,"[1] =>");
+	printToxy(7,13,"[2] =>");
+	printToxy(7,17,"[3] =>");
+	printToxy(105,9,"<= [4]");
+	printToxy(105,13,"<= [5]");
+	printToxy(90,13,"YA");
+	printToxy(105,17,"<= [6]");
+	printToxy(90,17,"TIDAK");
+	printToxy(60,24,"\t Masukan pilihan anda :  ");
+ 
+ }
+
+void displaykonfirmasitrf(int nominal){
+ 	header();
+ 	printToxy(52,3,"KONFIRMASI TRANSFER");
+	printToxy(43,5,"=================================");
+	printToxy(7,9,"[1] =>");
+	printToxy(7,13,"[2] =>");
+	printToxy(7,17,"[3] =>");
+	printToxy(105,9,"<= [4]");
+	printToxy(105,13,"<= [5]");
+	printToxy(105,17,"<= [6]");
+	printToxy(95,13,"YA");
+	printToxy(92,17,"TIDAK");
+	printToxy(50,9,"BANK       :");
+ 	printf ("%s", penerima.Bank);
+	printToxy(50,10,"TUJUAN     :");
+	printf ("%s", penerima.No_Rekening);
+	printToxy(50,11,"NAMA       :");
+	printf ("%s", penerima.Nama);
+	printToxy(50,12,"JUMLAH     :");
+	printf ("%d", nominal);
+	printToxy(50,13,"ADMIN BANK :");
+	printf ("%d", admin);
+	printToxy(50,14,"TOTAL      :");
+	printf ("%d", nominal+admin);
+	printToxy(60,24,"\t Masukan pilihan anda :  ");
+
+ }
+ 
