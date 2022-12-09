@@ -600,6 +600,7 @@ void MenuTransfer(){
              				system("cls");
              				displaykonfirmasitrf(nominal);
              				konfirmasitrf();
+					system("cls");
              				displaygoodtransfer();
              				gotoxy(50,15);
              				printf("SISA SALDO ANDA : %d", user.total_saldo);
@@ -609,7 +610,7 @@ void MenuTransfer(){
 					konfirmasi = getch();
 					switch(konfirmasi){
 						case '5' : 
-							MenuTransfer();
+							MenuLainnya();
 							break;
 						case '6' : 	
 							system("cls");
@@ -633,7 +634,7 @@ void MenuTransfer(){
 					konfirmasi = getch();
 					switch(konfirmasi){
 						case '5' : 
-							MenuTransfer();
+							MenuLainnya();
 							break;
 						case '6' : 	
 							system("cls");
@@ -655,7 +656,7 @@ void MenuTransfer(){
 					konfirmasi = getch();
 					switch(konfirmasi){
 						case '5' : 
-							MenuTransfer();
+							MenuLainnya();
 							break;
 						case '6' : 	
 							system("cls");
@@ -707,7 +708,7 @@ void MenuKonfirmasi(){
  	switch (opsi){
  		case 5 : 
 			system("cls");
-             		MenuTransfer();
+             		MenuLainnya();
              		break;
   	      	case 6:  
 			system("cls");
