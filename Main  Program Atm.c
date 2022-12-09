@@ -79,7 +79,7 @@ void displayMenuSaldo();
 void displayMenuUbahPin();
 void displayMenuMutasi();
 //Variabel Global
-int i, opsi, nominal;
+int i, opsi, nominal, isValid;
 int limitTarik=0, limittrf=0;
 int admin=3000;
 char No_Rek[21];
