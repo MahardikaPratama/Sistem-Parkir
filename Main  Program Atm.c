@@ -75,7 +75,7 @@ void displayJumlahNominal();
 void displayMenuListrik();
 void displayMenuPdam();
 void displayMenuTvInternet();
-void displayMenuSaldo();
+void displayInformasiSaldo();
 void displayMenuUbahPin();
 void displayMenuMutasi();
 //Variabel Global
@@ -852,8 +852,22 @@ void MenuTvInternet(){
 }
 
 void MenuInformasiSaldo(){
+	system("color 1F");
 	system("cls");
-	displayMenuSaldo();
+	displayLoading();
+	sleep(5);
+	system("cls");
+	displayInformasiSaldo();
+	scanf("%d", &opsi);
+	switch (opsi){
+		case 5: MenuLainnya;
+			break;
+		case 6: system("cls");
+			displayEnd();
+			sleep(5);
+			exit(0);
+			break;
+	}
 }
 
 void MenuUbahPin(){
@@ -1243,3 +1257,19 @@ void displaykonfirmasitrf(int nominal){
 
  }
  
+void displayInformasiSaldo(){
+	header();
+	printToxy(49,4,"SALDO REKENING ANDA");
+	printToxy(42,5,"=================================");
+	printToxy(7,9,"[1] =>");
+	printToxy(52,9,"RP. ");
+	printf("%d", user.total_saldo);
+	printToxy(7,13,"[2] =>");
+	printToxy(7,17,"[3] =>");
+	printToxy(105,9,"<= [4]");
+	printToxy(105,13,"<= [5]");
+	printToxy(105,17,"<= [6]");
+	printToxy(92,13,"IYA");
+	printToxy(92,17,"TIDAK");
+	printToxy(60,24,"\t Masukan pilihan anda :  ");
+}
