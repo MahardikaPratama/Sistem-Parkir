@@ -435,10 +435,9 @@ void MenuPenarikanCepat(){
 			system("cls");
 			MenuJumlahLain();
 			break;
-	/*	case 6: 
+		case 6: 
 			MenuLainnya();
 			break;
-				*/
 		default:
 			goto KEMBALI;
 	}
@@ -541,7 +540,7 @@ void MenuJumlahLain(){
 
 
 void MenuLainnya(){
-	system ("cls");
+	system("cls");
 	displayMenuLainnya();
 	KEMBALI:
     scanf("%d",&opsi);
@@ -968,4 +967,24 @@ void displayEnd(){
 	printToxy(43,11,"SEBAGAI PARTNER ANDA DALAM PERBANKAN ");
 	printToxy(105,13,"<= [5]");
 	printToxy(105,17,"<= [6]");
+}
+
+void displayMenuLainnya(){
+	header();
+	printToxy(52,3,"PILIH TRANSAKSI");
+	printToxy(51,4,"YANG ANDA INGINKAN");
+	printToxy(43,5,"=================================");
+	printToxy(7,9,"[1] =>");
+	printToxy(18,9,"TRANSFER");
+	printToxy(7,13,"[2] =>");
+	printToxy(18,13,"PEMBAYARAN/PEMBELIAN");
+	printToxy(7,17,"[3] =>");
+	printToxy(18,17,"INFORMASI SALDO");
+	printToxy(105,9,"<= [4]");
+	printToxy(84,9,"UBAH PIN");
+	printToxy(105,13,"<= [5]");
+	printToxy(84,13,"MUTASI REKENING");
+	printToxy(105,17,"<= [6]");
+	printToxy(84,17,"MENU SEBELUMNYA");
+	printToxy(60,24,"\t Masukan pilihan anda :  ");
 }
