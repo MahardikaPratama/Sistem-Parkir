@@ -11,10 +11,11 @@ typedef struct{
     	char Pin[7];
 	char NoHp [13];
 	char IdPelanggan[15];
+	char Bank[4];
 	long total_saldo;
 }Nasabah;
-Nasabah user = {.No_Rekening = "221524044",.Nama = "Mahardika",.Pin = "123456",.NoHp = "085864721960",.IdPelanggan = "1122334455",.total_saldo = 100000000};
-Nasabah penerima = {.No_Rekening = "221524043", .Nama = "Reza", .total_saldo = 500000};
+Nasabah user = {.No_Rekening = "221524044",.Nama = "Mahardika",.Pin = "123456",.NoHp = "085864721960",.IdPelanggan = "1122334455",.Bank = "BCA",.total_saldo = 20000000};
+Nasabah penerima = {.No_Rekening = "221524057", .Nama = "Reza", .Bank = "BRI", .total_saldo = 500000}; 
 //Deklarasi Modul
 void MenuBahasa();
 void bahasaIndonesia();
