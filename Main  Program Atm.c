@@ -649,7 +649,7 @@ void MenuTransfer(){
 					displayLoading();
 					sleep(5);
 					system("cls");
-					displayLimit();
+					displayTransaksiGagallimit();
 					DO3:
 					gotoxy(88, 24);
 					konfirmasi = getch();
