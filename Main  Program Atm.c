@@ -72,7 +72,7 @@ void displayMenuSaldo();
 void displayMenuUbahPin();
 void displayMenuMutasi();
 //Variabel Global
-int i, jumlah, opsi;
+int i, opsi, nominal, limitTarik=0;
 unsigned int sleep (unsigned int seconds);
 
 int main(){
@@ -129,6 +129,7 @@ void MenuPenarikanCepat(){
 	switch(opsi){
 		case 1: 
 			nominal = 250000;
+			limitTarik = limitTarik + nominal;
 			isValid = validitasTransaksi(nominal);
 			if (isValid == 1){
 				user.total_saldo = user.total_saldo - nominal;
@@ -139,17 +140,22 @@ void MenuPenarikanCepat(){
 				displayTransaksiBerhasil();
 				gotoxy(49,9);
 				printf("SISA SALDO ANDA: %d",user.total_saldo);
+				GO:
 				gotoxy(88, 24);
 				konfirmasi = getch();
-				if (konfirmasi=='5'){
-					goto KEMBALI;
+				switch(konfirmasi){
+					case '5' : 
+						goto KEMBALI;
+						break;
+					case '6' : 
+						system("cls");
+						displayEnd();
+						sleep(5);
+						exit(0);
+					default:
+						goto GO;
+					}
 				}
-				else {
-					system("cls");
-					displayEnd();
-					sleep(5);
-				}
-			}
 			else {
 				if(user.total_saldo - nominal < 10000){
 					system("cls");
@@ -157,15 +163,20 @@ void MenuPenarikanCepat(){
 					sleep(5);
 					system("cls");
 					displayTransaksiGagal();
+					GO2:
 					gotoxy(88, 24);
-					konfirmasi = getche();
-					if (konfirmasi=='5'){
-						goto KEMBALI;
-					}
-					else {
-						system("cls");
-						displayEnd();
-						sleep(5);
+					konfirmasi = getch();
+					switch(konfirmasi){
+						case '5' : 
+							goto KEMBALI;
+							break;
+						case '6' : 
+							system("cls");
+							displayEnd();
+							sleep(5);
+							exit(0);
+						default:
+							goto GO2;
 					}
 				}
 				if(limitTarik > 10000000){
@@ -174,21 +185,28 @@ void MenuPenarikanCepat(){
 					sleep(5);
 					system("cls");
 					displayTransaksiGagallimit();
+					GO3:
 					gotoxy(88, 24);
-					konfirmasi = getche();
-					if (konfirmasi=='5'){
-						goto KEMBALI;
-					}
-					else {
-						system("cls");
-						displayEnd();
-						sleep(5);
+					konfirmasi = getch();
+					switch(konfirmasi){
+						case '5' : 
+							goto KEMBALI;
+							break;
+						case '6' : 
+							system("cls");
+							displayEnd();
+							sleep(5);
+							exit(0);
+						default:
+							goto GO3;
 					}
 				}
 			}
 			break;
-		case 2: system("cls");
+		case 2: 
+			system("cls");
 			nominal = 500000;
+			limitTarik = limitTarik + nominal;
 			isValid = validitasTransaksi(nominal);
 			if (isValid == 1){
 				user.total_saldo = user.total_saldo - nominal;
@@ -198,15 +216,20 @@ void MenuPenarikanCepat(){
 				displayTransaksiBerhasil();
 				gotoxy(49,9);
 				printf("SISA SALDO ANDA: %d",user.total_saldo);
+				GO4:
 				gotoxy(88, 24);
-				konfirmasi = getche();
-				if (konfirmasi=='5'){
-					goto KEMBALI;
-				}
-				else {
-					system("cls");
-					displayEnd();
-					sleep(5);
+				konfirmasi = getch();
+				switch(konfirmasi){
+					case '5' : 
+						goto KEMBALI;
+						break;
+					case '6' : 
+						system("cls");
+						displayEnd();
+						sleep(5);
+						exit(0);
+					default:
+						goto GO4;
 				}
 			}
 			else {
@@ -216,15 +239,20 @@ void MenuPenarikanCepat(){
 					sleep(5);
 					system("cls");
 					displayTransaksiGagal();
+					GO5:
 					gotoxy(88, 24);
-					konfirmasi = getche();
-					if (konfirmasi=='5'){
-						goto KEMBALI;
-					}
-					else {
-						system("cls");
-						displayEnd();
-						sleep(5);
+					konfirmasi = getch();
+					switch(konfirmasi){
+						case '5' : 
+							goto KEMBALI;
+							break;
+						case '6' : 	
+							system("cls");
+							displayEnd();
+							sleep(5);
+							exit(0);
+						default:
+							goto GO5;
 					}
 				}
 				if(limitTarik > 10000000){
@@ -233,21 +261,28 @@ void MenuPenarikanCepat(){
 					sleep(5);
 					system("cls");
 					displayTransaksiGagallimit();
+					GO6:
 					gotoxy(88, 24);
-					konfirmasi = getche();
-					if (konfirmasi=='5'){
-						goto KEMBALI;
-					}
-					else {
-						system("cls");
-						displayEnd();
-						sleep(5);
+					konfirmasi = getch();
+					switch(konfirmasi){
+						case '5' : 
+							goto KEMBALI;
+							break;
+						case '6' : 	
+							system("cls");
+							displayEnd();
+							sleep(5);
+							exit(0);
+						default:
+							goto GO6;
 					}
 				}
 			}
 			break;
-		case 3:	system("cls");
+		case 3:	
+			system("cls");
 			nominal = 1000000;
+			limitTarik = limitTarik + nominal;
 			isValid = validitasTransaksi(nominal);
 			if (isValid == 1){
 				user.total_saldo = user.total_saldo - nominal;
@@ -257,15 +292,20 @@ void MenuPenarikanCepat(){
 				displayTransaksiBerhasil();
 				gotoxy(49,9);
 				printf("SISA SALDO ANDA: %d",user.total_saldo);
+				GO7:
 				gotoxy(88, 24);
-				konfirmasi = getche();
-				if (konfirmasi=='5'){
-					goto KEMBALI;
-				}
-				else {
-					system("cls");
-					displayEnd();
-					sleep(5);
+				konfirmasi = getch();
+				switch(konfirmasi){
+					case '5' : 
+						goto KEMBALI;
+						break;
+					case '6' : 	
+						system("cls");
+						displayEnd();
+						sleep(5);
+						exit(0);
+					default:
+						goto GO7;
 				}
 			}
 			else {
@@ -275,15 +315,20 @@ void MenuPenarikanCepat(){
 					sleep(5);
 					system("cls");
 					displayTransaksiGagal();
+					GO8:
 					gotoxy(88, 24);
-					konfirmasi = getche();
-					if (konfirmasi=='5'){
-						goto KEMBALI;
-					}
-					else {
-						system("cls");
-						displayEnd();
-						sleep(5);
+					konfirmasi = getch();
+					switch(konfirmasi){
+						case '5' : 
+							goto KEMBALI;
+							break;
+						case '6' : 	
+							system("cls");
+							displayEnd();
+							sleep(5);
+							exit(0);
+						default:
+							goto GO8;
 					}
 				}
 				if(limitTarik > 10000000){
@@ -292,21 +337,28 @@ void MenuPenarikanCepat(){
 					sleep(5);
 					system("cls");
 					displayTransaksiGagallimit();
+					GO9:
 					gotoxy(88, 24);
-					konfirmasi = getche();
-					if (konfirmasi=='5'){
-						goto KEMBALI;
-					}
-					else {
-						system("cls");
-						displayEnd();
-						sleep(5);
+					konfirmasi = getch();
+					switch(konfirmasi){
+						case '5' : 
+							goto KEMBALI;
+							break;
+						case '6' : 	
+							system("cls");
+							displayEnd();
+							sleep(5);
+							exit(0);
+						default:
+							goto GO9;
 					}
 				}
 			}
 			break;
-		case 4: system("cls");
+		case 4: 
+			system("cls");
 			nominal = 12500000;
+			limitTarik = limitTarik + nominal;
 			isValid = validitasTransaksi(nominal);
 			if (isValid == 1){
 				user.total_saldo = user.total_saldo - nominal;
@@ -316,15 +368,20 @@ void MenuPenarikanCepat(){
 				displayTransaksiBerhasil();
 				gotoxy(50,16);
 				printf("SISA SALDO ANDA: %d",user.total_saldo);
+				GO10:
 				gotoxy(88, 24);
-				konfirmasi = getche();
-				if (konfirmasi=='5'){
-					goto KEMBALI;
-				}
-				else {
-					system("cls");
-					displayEnd();
-					sleep(5);
+				konfirmasi = getch();
+				switch(konfirmasi){
+					case '5' : 
+						goto KEMBALI;
+						break;
+					case '6' : 	
+						system("cls");
+						displayEnd();
+						sleep(5);
+						exit(0);
+					default:
+						goto GO10;
 				}
 			}
 			else {
@@ -334,15 +391,20 @@ void MenuPenarikanCepat(){
 					sleep(5);
 					system("cls");
 					displayTransaksiGagal();
+					GO11:
 					gotoxy(88, 24);
-					konfirmasi = getche();
-					if (konfirmasi=='5'){
-						goto KEMBALI;
-					}
-					else {
-						system("cls");
-						displayEnd();
-						sleep(5);
+					konfirmasi = getch();
+					switch(konfirmasi){
+						case '5' : 
+							goto KEMBALI;
+							break;
+						case '6' : 	
+							system("cls");
+							displayEnd();
+							sleep(5);
+							exit(0);
+						default:
+							goto GO11;
 					}
 				}
 				if(limitTarik > 10000000){
@@ -351,23 +413,30 @@ void MenuPenarikanCepat(){
 					sleep(5);
 					system("cls");
 					displayTransaksiGagallimit();
+					GO12:
 					gotoxy(88, 24);
-					konfirmasi = getche();
-					if (konfirmasi=='5'){
-						goto KEMBALI;
-					}
-					else {
-						system("cls");
-						displayEnd();
-						sleep(5);
+					konfirmasi = getch();
+					switch(konfirmasi){
+						case '5' : 
+							goto KEMBALI;
+							break;
+						case '6' : 	
+							system("cls");
+							displayEnd();
+							sleep(5);
+							exit(0);
+						default:
+							goto GO12;
 					}
 				}
 			}
 			break;
-		case 5: system("cls");
+		case 5: 
+			system("cls");
 			MenuJumlahLain();
 			break;
-	/*	case 6: MenuLainnya();
+	/*	case 6: 
+			MenuLainnya();
 			break;
 				*/
 		default:
@@ -379,7 +448,7 @@ void MenuJumlahLain(){
 	int jumlahLain, opsi;
 	char konfirmasi;
 	
-	GO:
+	BACK:
 	system("cls");
 	displayMenuJumlahLain();
 	bacaJumlahLain(&nominal);
@@ -387,72 +456,89 @@ void MenuJumlahLain(){
 	scanf("%d", &opsi);
 	if (opsi == 5){
 		if(nominal % 50000 == 0 ){
+			limitTarik = limitTarik + nominal;
 			isValid = validitasTransaksi(nominal);
-				if (isValid == 1){
-					user.total_saldo = user.total_saldo - nominal;
+			if (isValid == 1){
+				user.total_saldo = user.total_saldo - nominal;
+				system("cls");
+				displayLoading();
+				sleep(5);
+				system("cls");
+				displayTransaksiBerhasil();
+				gotoxy(49,9);
+				printf("SISA SALDO ANDA: %d",user.total_saldo);
+				GO13:
+				gotoxy(88, 24);
+				konfirmasi = getch();
+				switch(konfirmasi){
+					case '5' : 
+						MenuPenarikanCepat();
+						break;
+					case '6' : 	
+						system("cls");
+						displayEnd();
+						sleep(5);
+						exit(0);
+					default:
+						goto GO13;
+				}
+			}
+			else {
+				if(user.total_saldo - nominal < 10000){
 					system("cls");
 					displayLoading();
 					sleep(5);
 					system("cls");
-					displayTransaksiBerhasil();
-					gotoxy(49,9);
-					printf("SISA SALDO ANDA: %d",user.total_saldo);
+					displayTransaksiGagal();
+					GO14:
 					gotoxy(88, 24);
-					konfirmasi = getche();
-					if (konfirmasi=='5'){
-						MenuPenarikanCepat();
-					}
-					else {
-						system("cls");
-						displayEnd();
-						sleep(5);
+					konfirmasi = getch();
+					switch(konfirmasi){
+						case '5' : 
+							MenuPenarikanCepat();
+							break;
+						case '6' : 	
+							system("cls");
+							displayEnd();
+							sleep(5);
+							exit(0);
+						default:
+							goto GO14;
 					}
 				}
-				else {
-					if(user.total_saldo - nominal < 10000){
-						system("cls");
-						displayLoading();
-						sleep(5);
-						system("cls");
-						displayTransaksiGagal();
-						gotoxy(88, 24);
-						konfirmasi = getche();
-						if (konfirmasi=='5'){
+				if(limitTarik > 10000000){
+					system("cls");
+					displayLoading();
+					sleep(5);
+					system("cls");
+					displayTransaksiGagallimit();
+					GO15:
+					gotoxy(88, 24);
+					konfirmasi = getch();
+					switch(konfirmasi){
+						case '5' : 
 							MenuPenarikanCepat();
-						}
-						else {
+							break;
+						case '6' : 	
 							system("cls");
 							displayEnd();
 							sleep(5);
-						}
-					}
-					if(limitTarik > 10000000){
-						system("cls");
-						displayLoading();
-						sleep(5);
-						system("cls");
-						displayTransaksiGagallimit();
-						gotoxy(88, 24);
-						konfirmasi = getche();
-						if (konfirmasi=='5'){
-							MenuPenarikanCepat();
-						}
-						else {
-							system("cls");
-							displayEnd();
-							sleep(5);
-						}
+							exit(0);
+						default:
+							goto GO15;
 					}
 				}
 			}
+		}
 	}
 	else if (opsi == 6){
-		goto GO;
+		goto BACK;
 	}
 	else {
 		MenuPenarikanCepat();
 	}
 }
+
 
 void MenuLainnya(){
 	system ("cls");
