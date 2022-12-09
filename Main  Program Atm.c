@@ -21,10 +21,11 @@ void bahasaIndonesia();
 void bahasaInggris();
 void bacaPin(char inputPin[6]);
 int Cek_validitas(int *Valid, char inputPin[6]);
-void PenarikanCepat();
 void MenuPenarikanCepat();
-int validitasTransaksi(nominal, &valid);
+int validitasTransaksi(int jumlah);
 void MenuJumlahLain();
+void bacaJumlahLain(int *nominal);
+void PenarikanCepat();
 void MenuLainnya();
 void MenuTransfer();
 void MenuPembayaran();
@@ -51,9 +52,12 @@ void displayMenuPinId();
 void displaySalahPin();
 void displayAkunTerblokir();
 void displayMenuPenarikanCepat();
-void displayBerhasil();
-void displayGagal();
-void displayJumlahLain();
+void displayTransaksiBerhasil();
+void displayTransaksiGagal();
+void displayTransaksiGagallimit();
+void displayMenuJumlahLain();
+void displayLoading();
+void displayEnd();
 void displayMenuLainnya();
 void displayMenuTransfer();
 void displayProsesTransfer();
@@ -109,76 +113,344 @@ void bahasaIndonesia(){
 }
 
 void PenarikanCepat(){
-	system("cls");
-	displayMenuPenarikanCepat();
 	MenuPenarikanCepat();
 }
 
 void MenuPenarikanCepat(){
+	int nominal;
+	int opsi;
+	char konfirmasi;
+	
 	KEMBALI:
-    scanf("%d",&opsi);
-    switch(opsi){
-    	case 1: nominal = 250000;
-				validitasTransaksi(nominal, &valid);
-    			if (valid == 1){
-    				displayBerhasil();
-    				break;
+	system("cls");
+	displayMenuPenarikanCepat();
+	isValid=0;
+	scanf("%d", &opsi);
+	switch(opsi){
+		case 1: 
+			nominal = 250000;
+			isValid = validitasTransaksi(nominal);
+			if (isValid == 1){
+				user.total_saldo = user.total_saldo - nominal;
+				system("cls");
+				displayLoading();
+				sleep(5);
+				system("cls");
+				displayTransaksiBerhasil();
+				gotoxy(49,9);
+				printf("SISA SALDO ANDA: %d",user.total_saldo);
+				gotoxy(88, 24);
+				konfirmasi = getch();
+				if (konfirmasi=='5'){
+					goto KEMBALI;
 				}
-				else if(valid == 0){
-					displayGagal();
-					break;
+				else {
+					system("cls");
+					displayEnd();
+					sleep(5);
 				}
-    	case 2: nominal = 500000;
-				validitasTransaksi(nominal, &valid);
-    			if (valid == 1){
-    				displayBerhasil();
-    				break;
+			}
+			else {
+				if(user.total_saldo - nominal < 10000){
+					system("cls");
+					displayLoading();
+					sleep(5);
+					system("cls");
+					displayTransaksiGagal();
+					gotoxy(88, 24);
+					konfirmasi = getche();
+					if (konfirmasi=='5'){
+						goto KEMBALI;
+					}
+					else {
+						system("cls");
+						displayEnd();
+						sleep(5);
+					}
 				}
-				else if(valid == 0){
-					displayGagal();
-					break;
+				if(limitTarik > 10000000){
+					system("cls");
+					displayLoading();
+					sleep(5);
+					system("cls");
+					displayTransaksiGagallimit();
+					gotoxy(88, 24);
+					konfirmasi = getche();
+					if (konfirmasi=='5'){
+						goto KEMBALI;
+					}
+					else {
+						system("cls");
+						displayEnd();
+						sleep(5);
+					}
 				}
-    	case 3: nominal = 1000000;
-				validitasTransaksi(nominal, &valid);
-    			if (valid == 1){
-    				displayBerhasil();
-    				break;
+			}
+			break;
+		case 2: system("cls");
+			nominal = 500000;
+			isValid = validitasTransaksi(nominal);
+			if (isValid == 1){
+				user.total_saldo = user.total_saldo - nominal;
+				displayLoading();
+				sleep(5);
+				system("cls");
+				displayTransaksiBerhasil();
+				gotoxy(49,9);
+				printf("SISA SALDO ANDA: %d",user.total_saldo);
+				gotoxy(88, 24);
+				konfirmasi = getche();
+				if (konfirmasi=='5'){
+					goto KEMBALI;
 				}
-				else if(valid == 0){
-					displayGagal();
-					break;
+				else {
+					system("cls");
+					displayEnd();
+					sleep(5);
 				}
-    	case 4: nominal = 1250000;
-				validitasTransaksi(nominal, &valid);
-    			if (valid == 1){
-    				displayBerhasil();
-    				break;
+			}
+			else {
+				if(user.total_saldo - nominal < 10000){
+					system("cls");
+					displayLoading();
+					sleep(5);
+					system("cls");
+					displayTransaksiGagal();
+					gotoxy(88, 24);
+					konfirmasi = getche();
+					if (konfirmasi=='5'){
+						goto KEMBALI;
+					}
+					else {
+						system("cls");
+						displayEnd();
+						sleep(5);
+					}
 				}
-				else if(valid == 0){
-					displayGagal();
-					break;
+				if(limitTarik > 10000000){
+					system("cls");
+					displayLoading();
+					sleep(5);
+					system("cls");
+					displayTransaksiGagallimit();
+					gotoxy(88, 24);
+					konfirmasi = getche();
+					if (konfirmasi=='5'){
+						goto KEMBALI;
+					}
+					else {
+						system("cls");
+						displayEnd();
+						sleep(5);
+					}
 				}
-    	case 5: MenuJumlahLain();
-				break;
-    	case 6: MenuLainnya();
-    			break;
-    	default :
-       		printf("\nMasukkan Tidak Valid !");
-        	goto KEMBALI;
-    }
+			}
+			break;
+		case 3:	system("cls");
+			nominal = 1000000;
+			isValid = validitasTransaksi(nominal);
+			if (isValid == 1){
+				user.total_saldo = user.total_saldo - nominal;
+				displayLoading();
+				sleep(5);
+				system("cls");
+				displayTransaksiBerhasil();
+				gotoxy(49,9);
+				printf("SISA SALDO ANDA: %d",user.total_saldo);
+				gotoxy(88, 24);
+				konfirmasi = getche();
+				if (konfirmasi=='5'){
+					goto KEMBALI;
+				}
+				else {
+					system("cls");
+					displayEnd();
+					sleep(5);
+				}
+			}
+			else {
+				if(user.total_saldo - nominal < 10000){
+					system("cls");
+					displayLoading();
+					sleep(5);
+					system("cls");
+					displayTransaksiGagal();
+					gotoxy(88, 24);
+					konfirmasi = getche();
+					if (konfirmasi=='5'){
+						goto KEMBALI;
+					}
+					else {
+						system("cls");
+						displayEnd();
+						sleep(5);
+					}
+				}
+				if(limitTarik > 10000000){
+					system("cls");
+					displayLoading();
+					sleep(5);
+					system("cls");
+					displayTransaksiGagallimit();
+					gotoxy(88, 24);
+					konfirmasi = getche();
+					if (konfirmasi=='5'){
+						goto KEMBALI;
+					}
+					else {
+						system("cls");
+						displayEnd();
+						sleep(5);
+					}
+				}
+			}
+			break;
+		case 4: system("cls");
+			nominal = 12500000;
+			isValid = validitasTransaksi(nominal);
+			if (isValid == 1){
+				user.total_saldo = user.total_saldo - nominal;
+				displayLoading();
+				sleep(5);
+				system("cls");
+				displayTransaksiBerhasil();
+				gotoxy(50,16);
+				printf("SISA SALDO ANDA: %d",user.total_saldo);
+				gotoxy(88, 24);
+				konfirmasi = getche();
+				if (konfirmasi=='5'){
+					goto KEMBALI;
+				}
+				else {
+					system("cls");
+					displayEnd();
+					sleep(5);
+				}
+			}
+			else {
+				if(user.total_saldo - nominal < 10000){
+					system("cls");
+					displayLoading();
+					sleep(5);
+					system("cls");
+					displayTransaksiGagal();
+					gotoxy(88, 24);
+					konfirmasi = getche();
+					if (konfirmasi=='5'){
+						goto KEMBALI;
+					}
+					else {
+						system("cls");
+						displayEnd();
+						sleep(5);
+					}
+				}
+				if(limitTarik > 10000000){
+					system("cls");
+					displayLoading();
+					sleep(5);
+					system("cls");
+					displayTransaksiGagallimit();
+					gotoxy(88, 24);
+					konfirmasi = getche();
+					if (konfirmasi=='5'){
+						goto KEMBALI;
+					}
+					else {
+						system("cls");
+						displayEnd();
+						sleep(5);
+					}
+				}
+			}
+			break;
+		case 5: system("cls");
+			MenuJumlahLain();
+			break;
+	/*	case 6: MenuLainnya();
+			break;
+				*/
+		default:
+			goto KEMBALI;
+	}
 }
 
 void MenuJumlahLain(){
+	int jumlahLain, opsi;
+	char konfirmasi;
+	
+	GO:
 	system("cls");
-	displayJumlahLain();
-	scanf ("%d", &jumlah);
-	validitasTransaksi(jumlah, &valid);
-    if (valid == 1){
-    	displayBerhasil();
+	displayMenuJumlahLain();
+	bacaJumlahLain(&nominal);
+	gotoxy(88,24);
+	scanf("%d", &opsi);
+	if (opsi == 5){
+		if(nominal % 50000 == 0 ){
+			isValid = validitasTransaksi(nominal);
+				if (isValid == 1){
+					user.total_saldo = user.total_saldo - nominal;
+					system("cls");
+					displayLoading();
+					sleep(5);
+					system("cls");
+					displayTransaksiBerhasil();
+					gotoxy(49,9);
+					printf("SISA SALDO ANDA: %d",user.total_saldo);
+					gotoxy(88, 24);
+					konfirmasi = getche();
+					if (konfirmasi=='5'){
+						MenuPenarikanCepat();
+					}
+					else {
+						system("cls");
+						displayEnd();
+						sleep(5);
+					}
+				}
+				else {
+					if(user.total_saldo - nominal < 10000){
+						system("cls");
+						displayLoading();
+						sleep(5);
+						system("cls");
+						displayTransaksiGagal();
+						gotoxy(88, 24);
+						konfirmasi = getche();
+						if (konfirmasi=='5'){
+							MenuPenarikanCepat();
+						}
+						else {
+							system("cls");
+							displayEnd();
+							sleep(5);
+						}
+					}
+					if(limitTarik > 10000000){
+						system("cls");
+						displayLoading();
+						sleep(5);
+						system("cls");
+						displayTransaksiGagallimit();
+						gotoxy(88, 24);
+						konfirmasi = getche();
+						if (konfirmasi=='5'){
+							MenuPenarikanCepat();
+						}
+						else {
+							system("cls");
+							displayEnd();
+							sleep(5);
+						}
+					}
+				}
+			}
 	}
-	else if(valid == 0){
-		displayGagal();
-		
+	else if (opsi == 6){
+		goto GO;
+	}
+	else {
+		MenuPenarikanCepat();
 	}
 }
 
@@ -383,6 +655,24 @@ int Cek_validitas(int *Valid, char inputPin[6]){
 	return *Valid;
 }
 
+int validitasTransaksi(int jumlah){
+	int isValid;
+	
+	limitTarik = limitTarik + jumlah;
+	if (user.total_saldo - jumlah >= 10000 && limitTarik <= 10000000){
+		isValid = 1;
+	}
+	else {
+		isValid = 0;
+	}
+	return isValid;
+}
+
+void bacaJumlahLain(int *nominal){	
+	gotoxy(52, 10);
+	scanf("%d", nominal);
+}
+
 void gotoxy(int x, int y){
     COORD coord;
 	coord.X = x;
@@ -477,8 +767,8 @@ void displayAkunTerblokir(){
 
 void displayMenuPenarikanCepat(){
 	header();
-	printToxy(51,3,"MENU PENARIKAN CEPAT");
-	printToxy(45,4,"SILAKAN PILIH JUMLAH PENARIKAN");
+	printToxy(50,3,"MENU PENARIKAN CEPAT");
+	printToxy(44,4,"SILAHKAN PILIH JUMLAH PENARIKAN");
 	printToxy(43,5,"=================================");
 	printToxy(7,9,"[1] =>");
 	printToxy(18,9,"Rp. 250.000,00");
@@ -487,10 +777,109 @@ void displayMenuPenarikanCepat(){
 	printToxy(7,17,"[3] =>");
 	printToxy(18,17,"Rp. 1.000.000,00");
 	printToxy(105,9,"<= [4]");
-	printToxy(75,9,"Rp. 1.250.000,00");
+	printToxy(83,9,"Rp. 1.250.000,00");
 	printToxy(105,13,"<= [5]");
-	printToxy(75,13,"JUMLAH LAIN");
+	printToxy(83,13,"Jumlah Lain");
 	printToxy(105,17,"<= [6]");
-	printToxy(75,17,"MENU SEBELUMNYA");
+	printToxy(83,17,"Menu Lainnya");
 	printToxy(60,24,"\t Masukan pilihan anda :  ");
+}
+
+void displayTransaksiBerhasil(){
+	header();
+	printToxy(52,3,"DETAIL TRANSAKSI");
+	printToxy(43,5,"=================================");
+	printToxy(7,9,"[1] =>");
+	printToxy(7,13,"[2] =>");
+	printToxy(7,17,"[3] =>");
+	printToxy(105,9,"<= [4]");
+	printToxy(105,13,"<= [5]");
+	printToxy(105,17,"<= [6]");
+	printToxy(95,13,"YA");
+	printToxy(92,17,"TIDAK");
+	printToxy(51,7,"TRANSAKSI BERHASIL");
+	printToxy(40,11,"APAKAH ANDA INGIN MELANJUTKAN TRANSAKSI ?");
+	printToxy(60,24,"\t Masukan pilihan anda :  ");
+}
+
+void displayTransaksiGagal(){
+	header();
+	printToxy(52,3,"DETAIL TRANSAKSI");
+	printToxy(43,5,"=================================");
+	printToxy(7,9,"[1] =>");
+	printToxy(7,13,"[2] =>");
+	printToxy(7,17,"[3] =>");
+	printToxy(105,9,"<= [4]");
+	printToxy(105,13,"<= [5]");
+	printToxy(105,17,"<= [6]");
+	printToxy(95,13,"YA");
+	printToxy(92,17,"TIDAK");
+	printToxy(52,8,"TRANSAKSI GAGAL");
+	printToxy(48,9,"PASTIKAN SALDO ANDA CUKUP");
+	printToxy(40,11,"APAKAH ANDA INGIN MELANJUTKAN TRANSAKSI ?");
+	printToxy(60,24,"\t Masukan pilihan anda :  ");
+}
+
+void displayTransaksiGagallimit(){
+	header();
+	printToxy(52,3,"DETAIL TRANSAKSI");
+	printToxy(43,5,"=================================");
+	printToxy(7,9,"[1] =>");
+	printToxy(7,13,"[2] =>");
+	printToxy(7,17,"[3] =>");
+	printToxy(105,9,"<= [4]");
+	printToxy(105,13,"<= [5]");
+	printToxy(105,17,"<= [6]");
+	printToxy(95,13,"YA");
+	printToxy(92,17,"TIDAK");
+	printToxy(53,8,"TRANSAKSI GAGAL");
+	printToxy(42,9,"ANDA TELAH MELEWATI LIMIT BATAS PENARIKAN");
+	printToxy(42,11,"APAKAH ANDA INGIN MELANJUTKAN TRANSAKSI ?");
+	printToxy(60,24,"\t Masukan pilihan anda :  ");
+}
+
+void displayMenuJumlahLain(){
+	header();
+	printToxy(51,3,"SILAHKAN MASUKKAN");
+	printToxy(47,4,"JUMLAH YANG INGIN DI TARIK ");
+	printToxy(43,5,"=================================");
+	printToxy(7,9,"[1] =>");
+	printToxy(7,13,"[2] =>");
+	printToxy(7,17,"[3] =>");
+	printToxy(19, 17,"CANCEL");
+	printToxy(105,9,"<= [4]");
+	printToxy(105,13,"<= [5]");
+	printToxy(105,17,"<= [6]");
+	printToxy(92,17,"SALAH");
+	printToxy(48,10,"Rp.");
+	printToxy(92,13,"BENAR");
+	printToxy(60,24,"\t Masukan pilihan anda :  ");
+}
+
+void displayLoading(){
+	header();
+	printToxy(51,3,"HARAP TUNGGU PROSES ");
+	printToxy(48,4,"TRANSFER SEDANG BERLANGSUNG  ");
+	printToxy(45,5,". . . . . . . . . . . . . . . .");
+	printToxy(7,9,"[1] =>");
+	printToxy(7,13,"[2] =>");
+	printToxy(7,17,"[3] =>");
+	printToxy(105,9,"<= [4]");
+	printToxy(105,13,"<= [5]");
+	printToxy(40,13,"TERIMA KASIH TELAH BERTRANSAKSI DENGAN KAMI");
+	printToxy(105,17,"<= [6]");
+}
+
+void displayEnd(){
+  	header();
+	printToxy(55,3,"BANK RAKYAT");
+	printToxy(45,5,"=================================");
+	printToxy(7,9,"[1] =>");
+	printToxy(7,13,"[2] =>");
+	printToxy(7,17,"[3] =>");
+	printToxy(105,9,"<= [4]");
+	printToxy(44,10,"TERIMA KASIH TELAH MEMERCAYAI KAMI");
+	printToxy(43,11,"SEBAGAI PARTNER ANDA DALAM PERBANKAN ");
+	printToxy(105,13,"<= [5]");
+	printToxy(105,17,"<= [6]");
 }
