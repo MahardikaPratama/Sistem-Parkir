@@ -729,7 +729,7 @@ void konfirmasitrf(){
              		displayLoading();
              		sleep(5);
              		system("cls");
-             		displaytransaksiberhasil();
+             		displayTransaksiBerhasil();
              		break;
         	case 6 :    
 			MenuTransfer();
