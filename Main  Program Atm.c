@@ -17,111 +17,27 @@ typedef struct{
 Nasabah user = {.No_Rekening = "221524044",.Nama = "Mahardika",.Pin = "123456",.NoHp = "085864721960",.IdPelanggan = "1122334455",.Bank = "BCA",.total_saldo = 20000000};
 Nasabah penerima = {.No_Rekening = "221524057", .Nama = "Reza", .Bank = "BRI", .total_saldo = 500000}; 
 //Deklarasi Modul
-void MenuBahasa(); 
-/*Prosedur untuk memilih bahasa antara bahasa Indonesia dan Inggris
-	I.S: Bahasa belum dipilih
-	F.S: Bahasa sudah dipilih
-	*/
-void bahasaIndonesia(); 
-/* Prosedur tampilan menu dengan menggunakan bahasa Indonesia
-	I.S: Tampilan menu belum menggunakan bahasa Indonesia
-	F.S: Tampilan menu sudah menggunakan bahasa Indonesia
-	*/
+void MenuBahasa();
+void bahasaIndonesia();
 void bahasaInggris();
-/*Prosedur tampilan menu dengan menggunakan bahasa Inggris
-	I.S: Tampilan menu belum menggunakan bahasa Inggris
-	F.S: Tampilan menu sudah menggunakan bahasa Inggris
-	*/
-void bacaPin(char inputPin[6]); 
-/*Prosedur untuk membaca input PIN
-	I.S: Input PIN belum dibaca
-	F.S: Input PIN sudah dibaca
-	*/
-int Cek_validitas(int *Valid, char inputPin[6]); 
-/*Fungsi untuk cek validasi PIN yang diinput apakah benar atau salah
-	*/
-void MenuPenarikanCepat(); 
-/* Prosedur untuk modul fitur Penarikan Cepat
-	I.S: Belum menampilkan modul fitur Penarikan Cepat
-	F.S: Sudah menampilkan modul fitur Penarikan Cepat
-	*/
+void bacaPin(char inputPin[6]);
+int Cek_validitas(int *Valid, char inputPin[6]);
+void MenuPenarikanCepat();
 int validitasTransaksi(int jumlah);
-/* Fungsi untuk cek validasi dari jumlah nominal terhadap saldo dan limit penarikan
-	*/
-void MenuJumlahLain(); 
-/* Prosedur untuk modul fitur Jumlah Lain
-	I.S: Belum menampilkan modul fitur MenuJumlahLain
-	F.S: Sudah menampilkan modul fitur MenuJumlahLain
-	*/
-void bacaJumlahLain(int *nominal); 
-/*Prosedur untuk membaca input jumlah nominal yang akan ditarik
-	I.S: Input jumlah nominal belum dibaca
-	F.S: Input jumlah nominal sudah dibaca
-	*/
-void PenarikanCepat(); //
-void MenuLainnya(); 
-/*Prosedur untuk modul fitur Menu Lainnya
-	I.S: Belum menampilkan modul fitur Menu Lainnya
-	F.S: Sudah menampilkan modul fitur Menu Lainnya
-	*/
-void MenuTransfer(); 
-/* Prosedur untuk mencakup modul fitur Menu Transfer
-	I.S: Belum menampilkan modul fitur Menu Transfer
-	F.S: Sudah menampilkan modul fitur Menu Transfer
-	*/
+void MenuJumlahLain();
+void bacaJumlahLain(int *nominal);
+void PenarikanCepat();
+void MenuLainnya();
+void MenuTransfer();
 void bacaJumlahTrf();
-void konfirmasitrf();
-/* Prosedur konfirmasi menampilkan data validitas transaksi transfer
-	I.S: Belum menampilkan data validitas transaksi transfer
-	F.S: Sudah menampilkan data validitas transaksi transfer
-	*/
-void MenuKonfirmasi(); 
-/* Prosedur konfirmasi dari proses transfer 
-	I.S: Belum konfirmasi transfer
-	F.S: Sudah konfirmasi transfer dengan ke menu selanjutnya
-	*/
+void konfirmasitrf(); 
+void MenuKonfirmasi();
 int cek_ValiditasNorek(int *Betul);
-/* Fungsi untuk cek validasi dari No Rekening yang diinput apakah benar atau salah
-	*/
 int cek_ValiditasTransfer(int *Betul);
-/* Fungsi untuk cek validasi dari jumlah nominal yang ingin ditransfer terhadap saldo dan limit transfer
-	*/
 void MenuPembayaran();
-/* Prosedur untuk mencakup modul fitur Menu Pembayaran
-	I.S: Belum menampilkan modul fitur Menu Transfer
-	F.S: Sudah menampilkan modul fitur Menu Transfer
-	*/
 void MenuInformasiSaldo();
-/* Prosedur untuk mencakup modul dari fitur Menu Informasi Saldo
-	I.S: Belum menampilkan modul fitur Menu Informasi Saldo
-	F.S: Sudah menampilkan modul fitur Menu Informasi Saldo
-	*/
 void MenuUbahPin();
-/* Prosedur untuk mencakup modul dari fitur Menu Ubah PIN
-	I.S: Belum menampilkan modul fitur Menu Ubah PIN
-	F.S: Sudah menampilkan modul fitur Menu Ubah PIN
-	*/
-void UbahPinLama();
-/* Prosedur yang mencakup perintah menginput PIN Lama
-	I.S: Belum menginput dan cek validitas PIN lama
-	F.S: Sudah menginput dan cek validitas PIN lama
-	*/
-void bacaKonfirmasiPinBaru(char konfirmasiPin[7]);
-/* Prosedur untuk menginput konfirmasi PIN Baru
-	I.S: Input konfirmasi PIN Baru belum dibaca
-	F.S: Input konfirmasi PIN Baru sudah dibaca
-	*/
-int Cek_validitasPinBaru(int *benar, char inputPinBaru[7], char konfirmasiPin[7]);
-/* Fungsi untuk cek validasi PIN Baru yang diinput apakah benar atau salah
-	*/
-void MasukkanPinBaru();
-/* Prosedur untuk mencakup perintah menginput PIN Baru
-	I.S: Belum menginput dan cek validitas PIN Baru
-	F.S: Sudah menginput dan cek validitas PIN Baru
-	*/
-
 void MenuMutasi();
-
 void MenuPembayaran();
 void MenuTeleponHp();
 void MenuListrik();
@@ -133,26 +49,110 @@ void MenuUbahPin();
 void MenuMutasi();
 
 void gotoxy(int x, int y);
+/*Prosedur ini berfungsi untuk menentukan kordinat pada tampilan atm 
+I.S : koordinat untuk menentukan tampilan display belum tebentuk
+F.S : koordinat untuk menentukan tampilan dispaly sudah terbentuk
+*/
 void printToxy(int x, int y, char* label);
+/*prosedur untuk menampilkan suatu inputan sesuai koordinat 
+I.S : Inputan belum tercetak
+F.S : Inputan sudah tercetak
+*/
 void header();
+/*prosedur untuk mencetak dan menampilkan bagian header pada atm  
+I.S : Header ATM belum tercetak
+F.S : Header ATM sudah terceta
+*/
 void displayMenuBahasa();
+/*prosedur untuk menampilkan tampilan menu pilih bahasa
+I.S : Tampilan menu bahasa belum tercetak
+F.S : Tampilan menu bahasa sudah tercetak
+*/
 void displayMenuPinId();
+/*prosedur untuk menampilkan tampilan menu pin
+I.S : Tampilan menu PIN belum tercetak
+F.S : Tampilan menu PIN sudah tercetak
+*/
 void displaySalahPin();
+/*prosedur untuk menampilkan tampilan jika terdapat kesalahan dalam menginput pin
+I.S : Tampilan menu pin jika salah belum terbentuk
+F.S : Tampilan menu pin jika salah sudah terbentuk
+*/
 void displayAkunTerblokir();
+/*prosedur untuk menampilkan tampilan jika input kesalahan pin lebih dari tiga kali
+I.S : Tampilan jika akun terblokir belum tercetak
+F.S : Tampilan jika akun terblokir sudah tercetak
+*/
 void displayMenuPenarikanCepat();
+/*prosedur untuk menampilkan tampilan pada menu penarikan cepat
+I.S : Tampilan untuk menu penarikan cepat belum tercetak
+F.S : Tampilan untuk menu penarikan cepat sudah tercetak
+*/
 void displayTransaksiBerhasil();
+/*prosedur untuk menampilkan tammpilan jika transaksi berhasil
+I.S : Tampilan jika transaksi belum tercetak
+F.S : Tampilan jika transaksi berhasil sudah tercetak
+*/
 void displayTransaksiGagal();
+/*prosedur untuk menampilkan tampilan jika transaksi gagal
+I.S : Tampilan untuk transaksi gagal belum tercetak
+F.S : Tampilan untuk transaksi gagal sudah tercetak
+*/
 void displayTransaksiGagallimit();
+/*prosedur untuk menampilkan tampilan jika transaksi melebihi limit batas perhari
+I.S : Tampilan transaksi gagal karena limit belum tercetak
+F.S : Tampilan transaksi gagal karena limit sudah tercetak
+*/
 void displayMenuJumlahLain();
+/*prosedur untuk menampilkan tampilan jika user ingin menarik uang dalam jumlah lain 
+I.S : Tampilan menu jumlah lain belum tercetak
+F.S : Tampilan menu jumlah lain sudah tercetak
+*/
 void displayLoading();
+/*prosedur untuk menampilkan jeda loading pada setiap transaksi
+I.S : Tampilan jeda loading pada setiap transaksi belum tercetak
+F.S : Tampilan jeda loading pada setiap transaksi sudah tercetak
+*/
 void displayEnd();
+/*prosedur untuk menampilkan tampilan ucapan terima kasih pada setiap akhir transaksi 
+I.S : Tampilan dispalyEnd belum tercetak
+F.S : Tampilan displayEnd sudah tercetak
+*/
 void displayMenuLainnya();
+/*prosedur untuk meampilkan tampilan jumlah lainnya selain dari menu penarikan cepat
+I.S : Tampilan menu lainnya belum tercetak
+F.S : Tampilan menu lainnya sudah tercetak
+*/
 void displayMenuTransfer();
+/*prosedur untuk menampilkan tampilan menu transfer
+I.S : Tampilan menu transfer belum tercetak
+F.S : Tampilan menu transfer sudah tercetak
+*/
 void displayProsesTransfer();
+/*prosedur untuk menampilkan tampilan jika proses transfer berlangsung
+I.S : Tampilan proses transfer belum tercetak
+F.S : Tampilan proses transfer sudah tercetak
+*/
 void displaytransfergagal();
+/*prosedur untuk menampilkan tampilan jika transfer gagal dilakukan
+I.S : Tampilan jika transfer gagal belum tercetak
+F.S : Tampilan jika transfer gagal sudah tercetak
+*/
 void displaytransferberhasil();
+/*prosedur untuk menampilkan tampilan jika tranfer berhasil dilakukan
+I.S : Tampilan jika transfer berhasil belum tercetak
+F.S : Tampilan jika transfer berhasil sudah tercetak
+*/
 void displaykonfirmasitrf(int nominal);
+/*prosedur untuk menampilkan tampilan konfirmasi transfer
+I.S : Tampilan untuk konfirmasi transfer belum tercetak
+F.S : Tampilan untuk konfifmasi transfer sudah tercetak
+*/
 void displaygoodtransfer();
+/*prosedur untuk menampilkan tampilan jika transaksi selesai dan menanyakan kembali apakah user ingin transfer lagi
+I.S : Tampilan transaksi selesai belum tercetak
+F.S : Tampilan transaksi selesai sudah tercetak
+*/
 void displayMenuPembayaran();
 void displayMenuTeleponHp();
 void displayJumlahNominal();
@@ -160,6 +160,10 @@ void displayMenuListrik();
 void displayMenuPdam();
 void displayMenuTvInternet();
 void displayInformasiSaldo();
+/*prosedur untuk menampilkan tampilan informasi saldo
+I.S : Tampilan informasi saldo belum tercetak
+F.S : Tampilan informasi saldo sudah tercetak
+*/
 void displayMenuUbahPin();
 void displayMenuMutasi();
 //Variabel Global
