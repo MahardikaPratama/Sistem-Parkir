@@ -17,27 +17,111 @@ typedef struct{
 Nasabah user = {.No_Rekening = "221524044",.Nama = "Mahardika",.Pin = "123456",.NoHp = "085864721960",.IdPelanggan = "1122334455",.Bank = "BCA",.total_saldo = 20000000};
 Nasabah penerima = {.No_Rekening = "221524057", .Nama = "Reza", .Bank = "BRI", .total_saldo = 500000}; 
 //Deklarasi Modul
-void MenuBahasa();
-void bahasaIndonesia();
+void MenuBahasa(); 
+/*Prosedur untuk memilih bahasa antara bahasa Indonesia dan Inggris
+	I.S: Bahasa belum dipilih
+	F.S: Bahasa sudah dipilih
+	*/
+void bahasaIndonesia(); 
+/* Prosedur tampilan menu dengan menggunakan bahasa Indonesia
+	I.S: Tampilan menu belum menggunakan bahasa Indonesia
+	F.S: Tampilan menu sudah menggunakan bahasa Indonesia
+	*/
 void bahasaInggris();
-void bacaPin(char inputPin[6]);
-int Cek_validitas(int *Valid, char inputPin[6]);
-void MenuPenarikanCepat();
+/*Prosedur tampilan menu dengan menggunakan bahasa Inggris
+	I.S: Tampilan menu belum menggunakan bahasa Inggris
+	F.S: Tampilan menu sudah menggunakan bahasa Inggris
+	*/
+void bacaPin(char inputPin[6]); 
+/*Prosedur untuk membaca input PIN
+	I.S: Input PIN belum dibaca
+	F.S: Input PIN sudah dibaca
+	*/
+int Cek_validitas(int *Valid, char inputPin[6]); 
+/*Fungsi untuk cek validasi PIN yang diinput apakah benar atau salah
+	*/
+void MenuPenarikanCepat(); 
+/* Prosedur untuk modul fitur Penarikan Cepat
+	I.S: Belum menampilkan modul fitur Penarikan Cepat
+	F.S: Sudah menampilkan modul fitur Penarikan Cepat
+	*/
 int validitasTransaksi(int jumlah);
-void MenuJumlahLain();
-void bacaJumlahLain(int *nominal);
-void PenarikanCepat();
-void MenuLainnya();
-void MenuTransfer();
+/* Fungsi untuk cek validasi dari jumlah nominal terhadap saldo dan limit penarikan
+	*/
+void MenuJumlahLain(); 
+/* Prosedur untuk modul fitur Jumlah Lain
+	I.S: Belum menampilkan modul fitur MenuJumlahLain
+	F.S: Sudah menampilkan modul fitur MenuJumlahLain
+	*/
+void bacaJumlahLain(int *nominal); 
+/*Prosedur untuk membaca input jumlah nominal yang akan ditarik
+	I.S: Input jumlah nominal belum dibaca
+	F.S: Input jumlah nominal sudah dibaca
+	*/
+void PenarikanCepat(); //
+void MenuLainnya(); 
+/*Prosedur untuk modul fitur Menu Lainnya
+	I.S: Belum menampilkan modul fitur Menu Lainnya
+	F.S: Sudah menampilkan modul fitur Menu Lainnya
+	*/
+void MenuTransfer(); 
+/* Prosedur untuk mencakup modul fitur Menu Transfer
+	I.S: Belum menampilkan modul fitur Menu Transfer
+	F.S: Sudah menampilkan modul fitur Menu Transfer
+	*/
 void bacaJumlahTrf();
-void konfirmasitrf(); 
-void MenuKonfirmasi();
+void konfirmasitrf();
+/* Prosedur konfirmasi menampilkan data validitas transaksi transfer
+	I.S: Belum menampilkan data validitas transaksi transfer
+	F.S: Sudah menampilkan data validitas transaksi transfer
+	*/
+void MenuKonfirmasi(); 
+/* Prosedur konfirmasi dari proses transfer 
+	I.S: Belum konfirmasi transfer
+	F.S: Sudah konfirmasi transfer dengan ke menu selanjutnya
+	*/
 int cek_ValiditasNorek(int *Betul);
+/* Fungsi untuk cek validasi dari No Rekening yang diinput apakah benar atau salah
+	*/
 int cek_ValiditasTransfer(int *Betul);
+/* Fungsi untuk cek validasi dari jumlah nominal yang ingin ditransfer terhadap saldo dan limit transfer
+	*/
 void MenuPembayaran();
+/* Prosedur untuk mencakup modul fitur Menu Pembayaran
+	I.S: Belum menampilkan modul fitur Menu Transfer
+	F.S: Sudah menampilkan modul fitur Menu Transfer
+	*/
 void MenuInformasiSaldo();
+/* Prosedur untuk mencakup modul dari fitur Menu Informasi Saldo
+	I.S: Belum menampilkan modul fitur Menu Informasi Saldo
+	F.S: Sudah menampilkan modul fitur Menu Informasi Saldo
+	*/
 void MenuUbahPin();
+/* Prosedur untuk mencakup modul dari fitur Menu Ubah PIN
+	I.S: Belum menampilkan modul fitur Menu Ubah PIN
+	F.S: Sudah menampilkan modul fitur Menu Ubah PIN
+	*/
+void UbahPinLama();
+/* Prosedur yang mencakup perintah menginput PIN Lama
+	I.S: Belum menginput dan cek validitas PIN lama
+	F.S: Sudah menginput dan cek validitas PIN lama
+	*/
+void bacaKonfirmasiPinBaru(char konfirmasiPin[7]);
+/* Prosedur untuk menginput konfirmasi PIN Baru
+	I.S: Input konfirmasi PIN Baru belum dibaca
+	F.S: Input konfirmasi PIN Baru sudah dibaca
+	*/
+int Cek_validitasPinBaru(int *benar, char inputPinBaru[7], char konfirmasiPin[7]);
+/* Fungsi untuk cek validasi PIN Baru yang diinput apakah benar atau salah
+	*/
+void MasukkanPinBaru();
+/* Prosedur untuk mencakup perintah menginput PIN Baru
+	I.S: Belum menginput dan cek validitas PIN Baru
+	F.S: Sudah menginput dan cek validitas PIN Baru
+	*/
+
 void MenuMutasi();
+
 void MenuPembayaran();
 void MenuTeleponHp();
 void MenuListrik();
