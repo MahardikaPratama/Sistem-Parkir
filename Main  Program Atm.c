@@ -24,7 +24,7 @@ void bahasaIndonesia();
 	I.S: Tampilan menu belum menggunakan bahasa Indonesia
 	F.S: Tampilan menu sudah menggunakan bahasa Indonesia
 	*/
-
+	
 void bacaPin(char inputPin[6]); 
 /*Prosedur untuk membaca input PIN
 	I.S: Input PIN belum dibaca
@@ -43,9 +43,9 @@ int validitasTransaksi(int jumlah);
 /* Fungsi untuk mengembalikan nilai Valid jika jumlah transaksi sesuai dengan aturan yaitu saldo sisa transaksi >= Rp.10000 dan limit penarikan<= Rp.10000000
 	*/
 void MenuJumlahLain(); 
-/* Prosedur untuk modul fitur Jumlah Lain
-	I.S: Belum menampilkan modul fitur MenuJumlahLain
-	F.S: Sudah menampilkan modul fitur MenuJumlahLain
+/* Prosedur untuk menu fitur Jumlah Lain
+	I.S: Belum menampilkan menu fitur MenuJumlahLain
+	F.S: Sudah menampilkan menu fitur MenuJumlahLain
 	*/
 void bacaJumlahLain(int *nominal); 
 /*Prosedur untuk membaca input jumlah nominal yang akan ditarik
@@ -84,6 +84,7 @@ int cek_ValiditasNorek(int *Betul);
 int cek_ValiditasTransfer(int *Betul);
 /* Fungsi untuk cek validasi dari jumlah nominal yang ingin ditransfer terhadap saldo dan limit transfer
 	*/
+
 void Menu_setor();
 /* Prosedur untuk modul fitur Setor Tunai
 	I.S: Belum menampilkan modul fitur Setor Tunai
@@ -101,15 +102,15 @@ F.S : Tampilan untuk pilihan setor lagi atau tidak sudah tercetak
 
 void MenuInformasiSaldo();
 /* Prosedur untuk mencakup modul dari fitur Menu Informasi Saldo
-	I.S: Belum menampilkan modul fitur Menu Informasi Saldo
-	F.S: Sudah menampilkan modul fitur Menu Informasi Saldo
+	I.S: Belum menampilkan fitur Menu Informasi Saldo
+	F.S: Sudah menampilkan fitur Menu Informasi Saldo
 	*/
 	
 
 void MenuUbahPin();
 /* Prosedur untuk mencakup modul dari fitur Menu Ubah PIN
-	I.S: Belum menampilkan modul fitur Menu Ubah PIN
-	F.S: Sudah menampilkan modul fitur Menu Ubah PIN
+	I.S: Belum menampilkan fitur Menu Ubah PIN
+	F.S: Sudah menampilkan fitur Menu Ubah PIN
 	*/
 void UbahPinLama();
 /* Prosedur yang mencakup perintah menginput PIN Lama
@@ -423,7 +424,7 @@ void MenuPenarikanCepat(){
 					//Membuka file untuk mutasi rekening
 					mutasi=fopen("Daftar Mutasi.txt","a");
     				gotoxy(53,16);
-					fprintf(mutasi,"\n\nPenarikan \n -Rp. %d", nominal);
+					fprintf(mutasi,"\n\nPenarikan\n-Rp. %d", nominal);
     				fclose(mutasi); //Menutup file
     				
 					GO:
@@ -499,7 +500,7 @@ void MenuPenarikanCepat(){
 					printf("SISA SALDO ANDA: %d",user.total_saldo);
 				
 					mutasi=fopen("Daftar Mutasi.txt","a");
-    				fprintf(mutasi,"\n\nPenarikan \n -Rp. %d", nominal);
+    				fprintf(mutasi,"\n\nPenarikan\n-Rp. %d", nominal);
     				fclose(mutasi);
 				
 					GO4:
@@ -575,7 +576,7 @@ void MenuPenarikanCepat(){
 					printf("SISA SALDO ANDA: %d",user.total_saldo);
 					
 					mutasi=fopen("Daftar Mutasi.txt","a");
-    				fprintf(mutasi,"\n\nPenarikan \n -Rp. %d", nominal);
+    				fprintf(mutasi,"\n\nPenarikan\n-Rp. %d", nominal);
     				fclose(mutasi);
 					
 					GO7:
@@ -651,7 +652,7 @@ void MenuPenarikanCepat(){
 					printf("SISA SALDO ANDA: %d",user.total_saldo);
 					
 					mutasi=fopen("Daftar Mutasi.txt","a");
-    				fprintf(mutasi,"\n\nPenarikan \n -Rp. %d", nominal);
+    				fprintf(mutasi,"\n\nPenarikan\n-Rp. %d", nominal);
     				fclose(mutasi);
 				
 					GO10:
@@ -749,7 +750,7 @@ void MenuJumlahLain(){
 				printf("SISA SALDO ANDA: %d",user.total_saldo);
 					
 				mutasi=fopen("Daftar Mutasi.txt","a");
-    			fprintf(mutasi,"\n\nPenarikan \n -Rp. %d", nominal);
+    			fprintf(mutasi,"\n\nPenarikan\n-Rp. %d", nominal);
     			fclose(mutasi);
 				
 				GO13:
@@ -892,7 +893,7 @@ void MenuTransfer(){
              				
 							//Membuka file untuk mutasi transfer 
 							mutasi=fopen("Daftar Mutasi.txt","a");
-    						fprintf(mutasi,"\n\nTransfer\n %s\n %s \n -Rp. %d\n", user.Bank, user.No_Rekening, nominal);
+    						fprintf(mutasi,"\n\nTransfer\n%s\n%s\n-Rp. %d\n", user.Bank, user.No_Rekening, nominal);
     						fclose(mutasi);
     						//Tutup File
              				system("cls");
@@ -1058,7 +1059,7 @@ void Menu_setor(){
 		
 		//Membuka file untuk mutasi setor
 		mutasi=fopen("Daftar Mutasi.txt","a");
-    	fprintf(mutasi,"\n\nSetor Tunai \n +Rp. %d", nominal);
+    	fprintf(mutasi,"\n\nSetor Tunai \n+Rp. %d", nominal);
     	fclose(mutasi);
 		//Tutuf file
 		
@@ -1236,16 +1237,30 @@ int Cek_validitasPinBaru(int *benar, char inputPinBaru[7], char konfirmasiPin[7]
 
 //Modul Mutasi Rekening
 void mutasiRekening(){
+	i = 4;
 	system("cls");
     FILE *mutasi=fopen("Daftar Mutasi.txt","r");
     char Buffer[255];
     system("cls");
     displayMutasi();
-	while(fgets(Buffer, 255, mutasi ))
-    {
-    	printf("\t\t%s", Buffer);
+	while(fgets(Buffer, 255, mutasi )){
+    	gotoxy(20,i);
+    	printf("\t\t%s\n", Buffer);
+    	i = i+1;
 	}
     fclose(mutasi);
+    gotoxy(88,24);
+	scanf("%d", &opsi);
+	switch (opsi){
+		case 5: MenuLainnya();
+				break;
+		case 6: system("cls");
+				displayEnd();
+				sleep(5);
+				exit(0);
+		default:
+				mutasiRekening();
+	}
 }
 
 
@@ -1731,18 +1746,7 @@ void displayMenuSetor(){
 }
 
 void displayMutasi(){
-	for (int i = 1; i<50; i++){
-    	printToxy(10,1+i,"||");
-	}
-	for (int i =0; i<=119; i++){
-    	printToxy(0+i,1,"=");
-	}
-	for (int i = 1; i<50; i++){
-    	printToxy(100,1+i,"||");
-	}
-	for (int i =0; i<=119; i++){
-    	printToxy(0+i,50,"=");
-	}
+	header();
 	printToxy(55,3,"Daftar Mutasi");
 	printToxy(45,5,"=================================");
 	printToxy(2,9,"[1] =>");
@@ -1751,4 +1755,8 @@ void displayMutasi(){
 	printToxy(105,9,"<= [4]");
 	printToxy(105,13,"<= [5]");
 	printToxy(105,17,"<= [6]");
+	printToxy(57,12,"INGIN TRANSAKSI LAGI ?");
+	printToxy(90,13,"YA");
+	printToxy(90,17,"TIDAK");
+	printToxy(60,24,"\t Masukan pilihan anda :  ");
 }
