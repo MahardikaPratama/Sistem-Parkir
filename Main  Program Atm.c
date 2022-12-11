@@ -84,13 +84,6 @@ int cek_ValiditasNorek(int *Betul);
 int cek_ValiditasTransfer(int *Betul);
 /* Fungsi untuk cek validasi dari jumlah nominal yang ingin ditransfer terhadap saldo dan limit transfer
 	*/
-
-void MenuInformasiSaldo();
-/* Prosedur untuk mencakup modul dari fitur Menu Informasi Saldo
-	I.S: Belum menampilkan modul fitur Menu Informasi Saldo
-	F.S: Sudah menampilkan modul fitur Menu Informasi Saldo
-	*/
-	
 void Menu_setor();
 /* Prosedur untuk modul fitur Setor Tunai
 	I.S: Belum menampilkan modul fitur Setor Tunai
@@ -100,6 +93,18 @@ void Menu_setor();
 int cekvalid_setor(int *betul, int nominal);	
 /* Fungsi untuk cek validasi dari nominal setor yang diinput apakah benar atau salah
 	*/
+void bacasetorlagi();
+/*prosedur untuk menampilkan pilihan setor lagi atau tidak
+I.S : Tampilan untuk pilihan setor lagi atau tidak belum tercetak
+F.S : Tampilan untuk pilihan setor lagi atau tidak sudah tercetak
+*/
+
+void MenuInformasiSaldo();
+/* Prosedur untuk mencakup modul dari fitur Menu Informasi Saldo
+	I.S: Belum menampilkan modul fitur Menu Informasi Saldo
+	F.S: Sudah menampilkan modul fitur Menu Informasi Saldo
+	*/
+	
 
 void MenuUbahPin();
 /* Prosedur untuk mencakup modul dari fitur Menu Ubah PIN
@@ -258,11 +263,6 @@ I.S : Tampilan untuk menu setor tunai belum tercetak
 F.S : Tampilan untuk menu setor tunai sudah tercetak
 */
 
-void bacasetorlagi();
-/*prosedur untuk menampilkan pilihan setor lagi atau tidak
-I.S : Tampilan untuk pilihan setor lagi atau tidak belum tercetak
-F.S : Tampilan untuk pilihan setor lagi atau tidak sudah tercetak
-*/
 
 void displaysetorberhasil();
 /*prosedur untuk menampilkan setoran berhasil
