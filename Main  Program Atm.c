@@ -24,11 +24,7 @@ void bahasaIndonesia();
 	I.S: Tampilan menu belum menggunakan bahasa Indonesia
 	F.S: Tampilan menu sudah menggunakan bahasa Indonesia
 	*/
-void bahasaInggris();
-/*Prosedur tampilan menu dengan menggunakan bahasa Inggris
-	I.S: Tampilan menu belum menggunakan bahasa Inggris
-	F.S: Tampilan menu sudah menggunakan bahasa Inggris
-	*/
+
 void bacaPin(char inputPin[6]); 
 /*Prosedur untuk membaca input PIN
 	I.S: Input PIN belum dibaca
