@@ -36,8 +36,8 @@ int Cek_validitas(int *Valid, char inputPin[6]);
 	
 void MenuPenarikanCepat(); 
 /* Prosedur untuk modul fitur Penarikan Cepat
-	I.S: Belum menampilkan modul fitur Penarikan Cepat
-	F.S: Sudah menampilkan modul fitur Penarikan Cepat
+	I.S: Belum menampilkan menu fitur Penarikan Cepat
+	F.S: Sudah menampilkan menu fitur Penarikan Cepat
 	*/
 int validitasTransaksi(int jumlah);
 /* Fungsi untuk mengembalikan nilai Valid jika jumlah transaksi sesuai dengan aturan yaitu saldo sisa transaksi >= Rp.10000 dan limit penarikan<= Rp.10000000
