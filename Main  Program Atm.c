@@ -15,12 +15,12 @@ typedef struct{
 
 //Deklarasi Modul
 void MenuBahasa(); 
-/*Prosedur untuk memilih bahasa antara bahasa Indonesia dan Inggris
+/*Prosedur  untuk memilih bahasa antara bahasa Indonesia dan Inggris
 	I.S: Bahasa belum dipilih
 	F.S: Bahasa sudah dipilih
 	*/
 void bahasaIndonesia(); 
-/* Prosedur tampilan menu dengan menggunakan bahasa Indonesia
+/* Prosedur untuk tampilan menu dengan menggunakan bahasa Indonesia
 	I.S: Tampilan menu belum menggunakan bahasa Indonesia
 	F.S: Tampilan menu sudah menggunakan bahasa Indonesia
 	*/
@@ -31,22 +31,25 @@ void bacaPin(char inputPin[6]);
 	F.S: Input PIN sudah dibaca
 	*/
 int Cek_validitas(int *Valid, char inputPin[6]); 
-/*Fungsi untuk mengembalikan nilai Valid jika pin yang di Input Benar atau Salah
+/*Fungsi untuk mengembalikan nilai benar = 1 jika pin yang di input sesuai dengan pin user. Dan akan mengembalikan nilai benar = 0 jika pin yang di input tidak sesuai dengan pin user
 	*/
 	
 void MenuPenarikanCepat(); 
-/* Prosedur untuk modul fitur Penarikan Cepat
-	I.S: Belum menampilkan menu fitur Penarikan Cepat
-	F.S: Sudah menampilkan menu fitur Penarikan Cepat
+/* Prosedur untuk menampilkan fitur menu Penarikan Cepat
+	I.S: Belum menampilkan fitur menu Penarikan Cepat
+	F.S: Sudah menampilkan fitur menu Penarikan Cepat
 	*/
-int validitasTransaksi(int jumlah);
-/* Fungsi untuk mengembalikan nilai Valid jika jumlah transaksi sesuai dengan aturan yaitu saldo sisa transaksi >= Rp.10000 dan limit penarikan<= Rp.10000000
-	*/
+
 void MenuJumlahLain(); 
 /* Prosedur untuk menu fitur Jumlah Lain
 	I.S: Belum menampilkan menu fitur MenuJumlahLain
 	F.S: Sudah menampilkan menu fitur MenuJumlahLain
 	*/
+
+int validitasTransaksi(int jumlah);
+/* Fungsi untuk mengembalikan nilai benar = 1 jika transaksi memenuhi aturan yaitu limit penarikan Rp. 10000000 dan sisa saldo minimum yang ada Rp. 10000. Dan akan mengembalikan nilai 0 jika sebaliknya.
+	*/
+
 void bacaJumlahLain(int *nominal); 
 /*Prosedur untuk membaca input jumlah nominal yang akan ditarik
 	I.S: Input jumlah nominal belum dibaca
@@ -68,21 +71,25 @@ void bacaJumlahTrf();
 	I.S: Jumlah nominal transfer belum diketahui
 	F.S: Jumlah nominal transfer sudah diketahui
 	*/
+
 void konfirmasitrf();
 /* Prosedur konfirmasi menampilkan data validitas transaksi transfer
 	I.S: Belum menampilkan data validitas transaksi transfer
 	F.S: Sudah menampilkan data validitas transaksi transfer
 	*/
+
 void MenuKonfirmasi(); 
 /* Prosedur konfirmasi dari proses transfer 
 	I.S: Belum konfirmasi transfer
 	F.S: Sudah konfirmasi transfer dengan ke menu selanjutnya
 	*/
+
 int cek_ValiditasNorek(int *Betul);
-/* Fungsi untuk cek validasi dari No Rekening yang diinput apakah benar atau salah
+/* Fungsi untuk mengembalikan nilai benar = 1 jika No. Rekening tujuan yang diinput sama dengan data no.rekening penerima. Dan akan mengembalikan nilai 0 jika sebaliknya.
 	*/
+
 int cek_ValiditasTransfer(int *Betul);
-/* Fungsi untuk cek validasi dari jumlah nominal yang ingin ditransfer terhadap saldo dan limit transfer
+/* Fungsi untuk mengembalikan nilai benar = 1 jika transaksi memenuhi aturan yaitu limit transfer Rp. 10000000 dan sisa saldo minimum yang ada Rp. 10000. Dan akan mengembalikan nilai 0 jika sebaliknya.
 	*/
 
 void Menu_setor();
@@ -92,7 +99,7 @@ void Menu_setor();
 	*/
 	
 int cekvalid_setor(int *betul, int nominal);	
-/* Fungsi untuk cek validasi dari nominal setor yang diinput apakah benar atau salah
+/* Fungsi untuk mengembalikan nilai betul= 1 jika transaksi memenuhi aturan yaitu limit setor Rp. 5000000 dan nomminal kelipatan Rp. 50000. Dan akan mengembalikan nilai 0 jika sebaliknya.
 	*/
 void bacasetorlagi();
 /*prosedur untuk menampilkan pilihan setor lagi atau tidak
@@ -125,7 +132,7 @@ void bacaKonfirmasiPinBaru(char konfirmasiPin[7]);
 	*/
 	
 int Cek_validitasPinBaru(int *benar, char inputPinBaru[7], char konfirmasiPin[7]);
-/*Fungsi untuk mengembalikan nilai Valid jika pin yang di Input Benar atau Salah
+/*Fungsi untuk mengembalikan nilai benar = 1 jika pin yang di input sesuai dengan pin user. Dan akan mengembalikan nilai benar = 0 jika pin yang di input tidak sesuai dengan pin user
 	*/
 	
 void MasukkanPinBaru();
