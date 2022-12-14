@@ -1,3 +1,15 @@
+/*	Program		: ATM(Auto Teller Machine).c
+	Deskripsi	: Program Simulator ATM
+	Kelompok	: 9
+	Kelas		: 1B
+	Anggota		:
+			      - Keanu Rayhan Harist (221524043)
+				  - Mahardika Pratama (221524044)
+				  - Reza Maulana Aziiz (221524057)
+	Tanggal		: 14 Desember 2022
+	Compiler 	: TDM-GCC 9.2.0 64-bit Release
+	===============================================*/
+	
 #include<stdio.h>
 #include<windows.h>
 #include<stdlib.h>
@@ -28,7 +40,7 @@ void bacaPin(char inputPin[6]);
 	F.S: Input PIN sudah dibaca
 	*/
 int Cek_validitas(int *Valid, char inputPin[6]); 
-/*Fungsi untuk mengembalikan nilai Valid jika pin yang di Input Benar atau Salah
+/*Fungsi untuk mengembalikan nilai benar = 1 jika pin yang di input sesuai dengan pin user. Dan akan mengembalikan nilai benar = 0 jika pin yang di input tidak sesuai dengan pin user
 	*/
 	
 void MenuPenarikanCepat(); 
@@ -56,7 +68,7 @@ void MenuLainnya();
 	F.S: Sudah menampilkan modul fitur Menu Lainnya
 	*/
 void MenuTransfer(); 
-/* Prosedur untuk mencakup modul fitur Menu Transfer
+/* Prosedur untuk modul fitur Menu Transfer
 	I.S: Belum menampilkan modul fitur Menu Transfer
 	F.S: Sudah menampilkan modul fitur Menu Transfer
 	*/
@@ -76,10 +88,10 @@ void MenuKonfirmasi();
 	F.S: Sudah konfirmasi transfer dengan ke menu selanjutnya
 	*/
 int cek_ValiditasNorek(int *Betul);
-/* Fungsi untuk cek validasi dari No Rekening yang diinput apakah benar atau salah
+/* Fungsi untuk mengembalikan nilai benar = 1 jika No. Rekening tujuan yang diinput sama dengan data no.rekening penerima. Dan akan mengembalikan nilai 0 jika sebaliknya
 	*/
 int cek_ValiditasTransfer(int *Betul);
-/* Fungsi untuk cek validasi dari jumlah nominal yang ingin ditransfer terhadap saldo dan limit transfer
+/* Fungsi untuk mengembalikan nilai benar = 1 jika transaksi memenuhi aturan yaitu limit transfer Rp. 10000000 dan sisa saldo minimum yang ada Rp. 10000. Dan akan mengembalikan nilai 0 jika sebaliknya.
 	*/
 
 void Menu_setor();
@@ -89,7 +101,7 @@ void Menu_setor();
 	*/
 	
 int cekvalid_setor(int *betul);	
-/* Fungsi untuk cek validasi dari nominal setor yang diinput apakah benar atau salah
+/* Fungsi untuk mengembalikan nilai betul= 1 jika transaksi memenuhi aturan yaitu limit setor Rp. 5000000 dan nomminal kelipatan Rp. 50000. Dan akan mengembalikan nilai 0 jika sebaliknya.
 	*/
 void bacasetorlagi();
 /*prosedur untuk menampilkan pilihan setor lagi atau tidak
@@ -104,19 +116,19 @@ F.S : Tampilan untuk tampilan gagal karena tidak memenuhi nominal minimum sudah 
 */
 
 void MenuInformasiSaldo();
-/* Prosedur untuk mencakup modul dari fitur Menu Informasi Saldo
+/* Prosedur untuk modul dari fitur Menu Informasi Saldo
 	I.S: Belum menampilkan fitur Menu Informasi Saldo
 	F.S: Sudah menampilkan fitur Menu Informasi Saldo
 	*/
 	
 
 void MenuUbahPin();
-/* Prosedur untuk mencakup modul dari fitur Menu Ubah PIN
+/* Prosedur untuk modul dari fitur Menu Ubah PIN
 	I.S: Belum menampilkan fitur Menu Ubah PIN
 	F.S: Sudah menampilkan fitur Menu Ubah PIN
 	*/
-void UbahPinLama();
-/* Prosedur yang mencakup perintah menginput PIN Lama
+void InputPinLama();
+/* Prosedur untuk modul memasukkan PIN Lama
 	I.S: Belum menginput dan cek validitas PIN lama
 	F.S: Sudah menginput dan cek validitas PIN lama
 	*/
@@ -128,25 +140,25 @@ void bacaKonfirmasiPinBaru(char konfirmasiPin[7]);
 	*/
 	
 int Cek_validitasPinBaru(int *benar, char inputPinBaru[7], char konfirmasiPin[7]);
-/*Fungsi untuk mengembalikan nilai Valid jika pin yang di Input Benar atau Salah
+/*Fungsi untuk mengembalikan nilai benar = 1 jika pin yang di input sesuai dengan pin user. Dan akan mengembalikan nilai benar = 0 jika pin yang di input tidak sesuai dengan pin user
 	*/
 	
 void MasukkanPinBaru();
-/* Prosedur untuk mencakup perintah menginput PIN Baru
+/* Prosedur untuk modul perintah menginput PIN Baru
 	I.S: Belum menginput dan cek validitas PIN Baru
 	F.S: Sudah menginput dan cek validitas PIN Baru
 	*/
 
 void catatTransaksiMasuk(Nasabah DaftarMutasi[]);
-/*prosedur untuk mencatat c dilakukan
+/*prosedur untuk mencatat transaksi dilakukan
 I.S : Transaksi belum dicatat
 F.S : Transaksi telah dicatat
 */
 
 void LihatMutasi(Nasabah DaftarMutasi[]);
-/*prosedur untuk menu mutasi rekening
-I.S : Menu mutasi rekening belum ditampilkan
-F.S : Menu mutasi rekening sudah ditampilkan
+/*prosedur untuk menampilkan mutasi rekening
+I.S : Mutasi rekening belum ditampilkan
+F.S : Mutasi rekening sudah ditampilkan
 */
 	
 void gotoxy(int x, int y);
@@ -1183,10 +1195,10 @@ void MenuInformasiSaldo(){
 
 //Modul Ubah Pin
 void MenuUbahPin(){
-	UbahPinLama(); //Memanggil modul UbahPinLama();
+	InputPinLama(); //Memanggil modul UbahPinLama();
 }
 
-void UbahPinLama(){
+void InputPinLama(){
 	benar = 0;
 	system("cls");
 	displayUbahPinLama();
@@ -1302,7 +1314,7 @@ void LihatMutasi(Nasabah DaftarMutasi[]){
 			printf("\n| Mutation List		   |");
 			printf("\n|--------------------------|");
 		}
-		for(i=sizeTransaksi-1; i>=sizeTransaksi-11; i--){
+		for(i=sizeTransaksi-1; i>=sizeTransaksi-10; i--){
 			cetakMutasi(DaftarMutasi[i]);
 		}
 		printf("\n|--------------------------|");
