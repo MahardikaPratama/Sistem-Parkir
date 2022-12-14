@@ -3,9 +3,9 @@
 	Kelompok	: 9
 	Kelas		: 1B
 	Anggota		:
-			      - Keanu Rayhan Harist (221524043)
-				  - Mahardika Pratama (221524044)
-				  - Reza Maulana Aziiz (221524057)
+			- Keanu Rayhan Harist (221524043)
+		  	- Mahardika Pratama (221524044)
+			- Reza Maulana Aziiz (221524057)
 	Tanggal		: 14 Desember 2022
 	Compiler 	: TDM-GCC 9.2.0 64-bit Release
 	===============================================*/
@@ -21,7 +21,7 @@
 typedef struct{
 	char No_Rekening[10];
    	char Nama[30];
-    char Pin[7];
+    	char Pin[7];
 	char Bank[4];
 	int total_saldo;
 }Nasabah;
@@ -39,6 +39,7 @@ void bacaPin(char inputPin[6]);
 	I.S: Input PIN belum dibaca
 	F.S: Input PIN sudah dibaca
 	*/
+
 int Cek_validitas(int *Valid, char inputPin[6]); 
 /*Fungsi untuk mengembalikan nilai benar = 1 jika pin yang di input sesuai dengan pin user. Dan akan mengembalikan nilai benar = 0 jika pin yang di input tidak sesuai dengan pin user
 	*/
@@ -48,14 +49,17 @@ void MenuPenarikanCepat();
 	I.S: Belum menampilkan menu fitur Penarikan Cepat
 	F.S: Sudah menampilkan menu fitur Penarikan Cepat
 	*/
+
 int validitasTransaksi();
 /* Fungsi untuk mengembalikan nilai Valid jika jumlah transaksi sesuai dengan aturan yaitu saldo sisa transaksi >= Rp.10000 dan limit penarikan<= Rp.10000000
 	*/
+
 void MenuJumlahLain(); 
 /* Prosedur untuk menu fitur Jumlah Lain
 	I.S: Belum menampilkan menu fitur MenuJumlahLain
 	F.S: Sudah menampilkan menu fitur MenuJumlahLain
 	*/
+
 void bacaJumlahLain(); 
 /*Prosedur untuk membaca input jumlah nominal yang akan ditarik
 	I.S: Input jumlah nominal belum dibaca
@@ -67,29 +71,35 @@ void MenuLainnya();
 	I.S: Belum menampilkan modul fitur Menu Lainnya
 	F.S: Sudah menampilkan modul fitur Menu Lainnya
 	*/
+
 void MenuTransfer(); 
 /* Prosedur untuk modul fitur Menu Transfer
 	I.S: Belum menampilkan modul fitur Menu Transfer
 	F.S: Sudah menampilkan modul fitur Menu Transfer
 	*/
+
 void bacaJumlahTrf();
 /* Prosedur untuk membaca jumlah nominal transfer
 	I.S: Jumlah nominal transfer belum diketahui
 	F.S: Jumlah nominal transfer sudah diketahui
 	*/
+
 void konfirmasitrf();
 /* Prosedur konfirmasi menampilkan data validitas transaksi transfer
 	I.S: Belum menampilkan data validitas transaksi transfer
 	F.S: Sudah menampilkan data validitas transaksi transfer
 	*/
+
 void MenuKonfirmasi(); 
 /* Prosedur konfirmasi dari proses transfer 
 	I.S: Belum konfirmasi transfer
 	F.S: Sudah konfirmasi transfer dengan ke menu selanjutnya
 	*/
+
 int cek_ValiditasNorek(int *Betul);
 /* Fungsi untuk mengembalikan nilai benar = 1 jika No. Rekening tujuan yang diinput sama dengan data no.rekening penerima. Dan akan mengembalikan nilai 0 jika sebaliknya
 	*/
+
 int cek_ValiditasTransfer(int *Betul);
 /* Fungsi untuk mengembalikan nilai benar = 1 jika transaksi memenuhi aturan yaitu limit transfer Rp. 10000000 dan sisa saldo minimum yang ada Rp. 10000. Dan akan mengembalikan nilai 0 jika sebaliknya.
 	*/
@@ -103,6 +113,7 @@ void Menu_setor();
 int cekvalid_setor(int *betul);	
 /* Fungsi untuk mengembalikan nilai betul= 1 jika transaksi memenuhi aturan yaitu limit setor Rp. 5000000 dan nomminal kelipatan Rp. 50000. Dan akan mengembalikan nilai 0 jika sebaliknya.
 	*/
+
 void bacasetorlagi();
 /*prosedur untuk menampilkan pilihan setor lagi atau tidak
 I.S : Tampilan untuk pilihan setor lagi atau tidak belum tercetak
@@ -127,6 +138,7 @@ void MenuUbahPin();
 	I.S: Belum menampilkan fitur Menu Ubah PIN
 	F.S: Sudah menampilkan fitur Menu Ubah PIN
 	*/
+
 void InputPinLama();
 /* Prosedur untuk modul memasukkan PIN Lama
 	I.S: Belum menginput dan cek validitas PIN lama
@@ -166,101 +178,121 @@ void gotoxy(int x, int y);
 I.S : koordinat untuk menentukan tampilan display belum tebentuk
 F.S : koordinat untuk menentukan tampilan dispaly sudah terbentuk
 */
+
 void printToxy(int x, int y, char* label);
 /*prosedur untuk menampilkan suatu inputan sesuai koordinat 
 I.S : Inputan belum tercetak
 F.S : Inputan sudah tercetak
 */
+
 void header();
 /*prosedur untuk mencetak dan menampilkan bagian header pada atm  
 I.S : Header ATM belum tercetak
 F.S : Header ATM sudah terceta
 */
+
 void displayMenuBahasa();
 /*prosedur untuk menampilkan tampilan menu pilih bahasa
 I.S : Tampilan menu bahasa belum tercetak
 F.S : Tampilan menu bahasa sudah tercetak
 */
+
 void displayMenuPinId();
 /*prosedur untuk menampilkan tampilan menu pin
 I.S : Tampilan menu PIN belum tercetak
 F.S : Tampilan menu PIN sudah tercetak
 */
+
 void displaySalahPin();
 /*prosedur untuk menampilkan tampilan jika terdapat kesalahan dalam menginput pin
 I.S : Tampilan menu pin jika salah belum terbentuk
 F.S : Tampilan menu pin jika salah sudah terbentuk
 */
+
 void displayAkunTerblokir();
 /*prosedur untuk menampilkan tampilan jika input kesalahan pin lebih dari tiga kali
 I.S : Tampilan jika akun terblokir belum tercetak
 F.S : Tampilan jika akun terblokir sudah tercetak
 */
+
 void displayMenuPenarikanCepat();
 /*prosedur untuk menampilkan tampilan pada menu penarikan cepat
 I.S : Tampilan untuk menu penarikan cepat belum tercetak
 F.S : Tampilan untuk menu penarikan cepat sudah tercetak
 */
+
 void displayTransaksiBerhasil();
 /*prosedur untuk menampilkan tammpilan jika transaksi berhasil
 I.S : Tampilan jika transaksi belum tercetak
 F.S : Tampilan jika transaksi berhasil sudah tercetak
 */
+
 void displayTransaksiGagal();
 /*prosedur untuk menampilkan tampilan jika transaksi gagal
 I.S : Tampilan untuk transaksi gagal belum tercetak
 F.S : Tampilan untuk transaksi gagal sudah tercetak
 */
+
 void displayTransaksiGagallimit();
 /*prosedur untuk menampilkan tampilan jika transaksi melebihi limit batas perhari
 I.S : Tampilan transaksi gagal karena limit belum tercetak
 F.S : Tampilan transaksi gagal karena limit sudah tercetak
 */
+
 void displayMenuJumlahLain();
 /*prosedur untuk menampilkan tampilan jika user ingin menarik uang dalam jumlah lain 
 I.S : Tampilan menu jumlah lain belum tercetak
 F.S : Tampilan menu jumlah lain sudah tercetak
 */
+
 void displayLoading();
 /*prosedur untuk menampilkan jeda loading pada setiap transaksi
 I.S : Tampilan jeda loading pada setiap transaksi belum tercetak
 F.S : Tampilan jeda loading pada setiap transaksi sudah tercetak
 */
+
 void displayEnd();
 /*prosedur untuk menampilkan tampilan ucapan terima kasih pada setiap akhir transaksi 
 I.S : Tampilan dispalyEnd belum tercetak
 F.S : Tampilan displayEnd sudah tercetak
 */
+
 void displayMenuLainnya();
 /*prosedur untuk meampilkan tampilan jumlah lainnya selain dari menu penarikan cepat
 I.S : Tampilan menu lainnya belum tercetak
 F.S : Tampilan menu lainnya sudah tercetak
 */
+
 void displayMenuTransfer();
 /*prosedur untuk menampilkan tampilan menu transfer
 I.S : Tampilan menu transfer belum tercetak
 F.S : Tampilan menu transfer sudah tercetak
 */
+
 void displayProsesTransfer();
 /*prosedur untuk menampilkan tampilan jika proses transfer berlangsung
 I.S : Tampilan proses transfer belum tercetak
 F.S : Tampilan proses transfer sudah tercetak
 */
+
 void displaytransfergagal();
 /*prosedur untuk menampilkan tampilan jika transfer gagal dilakukan
 I.S : Tampilan jika transfer gagal belum tercetak
 F.S : Tampilan jika transfer gagal sudah tercetak
 */
+
 void displaytransferberhasil();
 /*prosedur untuk menampilkan tampilan jika tranfer berhasil dilakukan
 I.S : Tampilan jika transfer berhasil belum tercetak
 F.S : Tampilan jika transfer berhasil sudah tercetak
 */
+
 void displaykonfirmasitrf();
 /*prosedur untuk menampilkan tampilan konfirmasi transfer
 I.S : Tampilan untuk konfirmasi transfer belum tercetak
 F.S : Tampilan untuk konfifmasi transfer sudah tercetak
 */
+
 void displaygoodtransfer();
 /*prosedur untuk menampilkan tampilan jika transaksi selesai dan menanyakan kembali apakah user ingin transfer lagi
 I.S : Tampilan transaksi selesai belum tercetak
@@ -358,19 +390,21 @@ int main(){
 	KEMBALI:
 	system("cls");
 	displayMenuBahasa();	
-    scanf("%d",&opsi);
-    switch(opsi){
-    	case 4: bhs = 1; // bahasa indonesia
-				system ("cls");
+    	scanf("%d",&opsi);
+   	switch(opsi){
+    		case 4: 
+			bhs = 1; // bahasa indonesia
+			system ("cls");
     			MasukkanPin();  //	Memanggil modul memasukkan pin
-				break;
-   		case 5: bhs = 2;// bahasa indonesia
-		   		system ("cls");		
+			break;
+   		case 5: 
+			bhs = 2;// bahasa indonesia
+	  		system ("cls");		
     			MasukkanPin();	
     			break;
-    	default :
-        	goto KEMBALI;
-    }
+    		default :
+        		goto KEMBALI;
+    	}
 }
 
 //Modul Bahasa Indonesia
@@ -390,11 +424,11 @@ void MasukkanPin(){
 //Modul baca pin
 void bacaPin(char inputPin[6]){
 	gotoxy(53, 13);
-    for(int i = 0; i < 6; i++){
-        inputPin[i] = _getch();
-        putchar('*');
-        putchar(' ');
-    }
+	for(int i = 0; i < 6; i++){
+        	inputPin[i] = _getch();
+        	putchar('*');
+        	putchar(' ');
+    	}
 }
 
 //Modul cek validitas pin
@@ -428,313 +462,328 @@ void MenuPenarikanCepat(){
 	scanf("%d", &opsi);
 	switch(opsi){
 		case 1: 
-				nominal[k] = 250000;
-				limitTarik = limitTarik + nominal[k];
-				benar = validitasTransaksi(nominal); //Memanggil modul validitasTransaksi
-				if (benar == 1){
-					user.total_saldo = user.total_saldo - nominal[k];
-					system("cls");
-					displayLoading(); //Memanggil modul displayLoading();
-					sleep(5);
-					system("cls");
-					displayTransaksiBerhasil(); //Memanggil modul displayTransaksiBerhasil();
-					gotoxy(49,9);
-					printf("SISA SALDO ANDA: %d",user.total_saldo);
-					
-					catatTransaksiMasuk(DaftarMutasi);
-					transaksi[k] = 1;
-					k = k + 1;
-    				
-					GO:
-					gotoxy(88, 24);
-					konfirmasi = getch();
-					switch(konfirmasi){
-						case '5' : goto KEMBALI;
-								break;
-						case '6' : 	system("cls");
-									displayEnd(); //Memanggil modul displayEnd();
-									sleep(5);
-									exit(0);
-						default:
-							goto GO;
-					}
-				}
-				else {
-					if(user.total_saldo - nominal[k] < 10000){
-						system("cls");
-						displayLoading();
+			nominal[k] = 250000;
+			limitTarik = limitTarik + nominal[k];
+			benar = validitasTransaksi(nominal); //Memanggil modul validitasTransaksi
+			if (benar == 1){
+				user.total_saldo = user.total_saldo - nominal[k];
+				system("cls");
+				displayLoading(); //Memanggil modul displayLoading();
+				sleep(5);
+				system("cls");
+				displayTransaksiBerhasil(); //Memanggil modul displayTransaksiBerhasil();
+				gotoxy(49,9);
+				printf("SISA SALDO ANDA: %d",user.total_saldo);	
+				catatTransaksiMasuk(DaftarMutasi); //Memanngil modul untuk mencatat transaksi yang dilakukan
+				transaksi[k] = 1;
+				k = k + 1;
+				GO:
+				gotoxy(88, 24);
+				konfirmasi = getch();
+				switch(konfirmasi){
+					case '5' :	
+						goto KEMBALI;
+						break;
+					case '6' : 
+					   	system("cls");
+						displayEnd(); //Memanggil modul displayEnd();
 						sleep(5);
-						system("cls");
-						displayTransaksiGagal();
-						
-						GO2:
-						gotoxy(88, 24);
-						konfirmasi = getch();
-						switch(konfirmasi){
-							case '5' : goto KEMBALI;
-									break;
-							case '6' : 	system("cls");
-										displayEnd();
-										sleep(5);
-										exit(0);
-							default:
-								goto GO2;
-						}
-					}
-					if(limitTarik > 10000000){
-						system("cls");
-						displayLoading();
-						sleep(5);
-						system("cls");
-						displayTransaksiGagallimit();
-						
-						GO3:
-						gotoxy(88, 24);
-						konfirmasi = getch();
-						switch(konfirmasi){
-							case '5' : goto KEMBALI;
-									break;
-							case '6' : 	system("cls");
-										displayEnd();
-										sleep(5);
-										exit(0);
-							default:
-								goto GO3;
-						}
-					}
+						exit(0);
+					default:
+						goto GO;
 				}
-				break;
-		case 2: system("cls");
-				nominal [k]= 500000;
-				limitTarik = limitTarik + nominal[k];
-				benar = validitasTransaksi(nominal);
-				if (benar == 1){
-					user.total_saldo = user.total_saldo - nominal[k];
+			}
+			else {
+				if(user.total_saldo - nominal[k] < 10000){
+					system("cls");
 					displayLoading();
 					sleep(5);
 					system("cls");
-					displayTransaksiBerhasil();
-					gotoxy(49,9);
-					printf("SISA SALDO ANDA: %d",user.total_saldo);
-					catatTransaksiMasuk(DaftarMutasi);
-					transaksi[k] = 1;
-					k = k + 1;
-				
-					GO4:
+					displayTransaksiGagal();	
+					GO2:
 					gotoxy(88, 24);
 					konfirmasi = getch();
 					switch(konfirmasi){
-						case '5' : goto KEMBALI;
-								break;
-						case '6' : 	system("cls");
-									displayEnd();
-									sleep(5);
-									exit(0);
+						case '5' : 
+							goto KEMBALI;
+							break;
+						case '6' : 	
+							system("cls");
+							displayEnd();
+							sleep(5);
+							exit(0);
 						default:
-							goto GO4;
+							goto GO2;
 					}
 				}
-				else {
-					if(user.total_saldo - nominal[k] < 10000){
-						system("cls");
-						displayLoading();
-						sleep(5);
-						system("cls");
-						displayTransaksiGagal();
-					
-						GO5:
-						gotoxy(88, 24);
-						konfirmasi = getch();
-						switch(konfirmasi){
-							case '5' : goto KEMBALI;
-									break;
-							case '6' : 	system("cls");
-										displayEnd();
-										sleep(5);
-										exit(0);
-							default:
-								goto GO5;
-						}
-					}
-					if(limitTarik > 10000000){
-						system("cls");
-						displayLoading();
-						sleep(5);
-						system("cls");
-						displayTransaksiGagallimit();
-					
-						GO6:
-						gotoxy(88, 24);
-						konfirmasi = getch();
-						switch(konfirmasi){
-							case '5' : goto KEMBALI;
-									break;
-							case '6' : 	system("cls");
-										displayEnd();
-										sleep(5);
-										exit(0);
-							default:
-								goto GO6;
-						}
-					}
-				}
-				break;
-		case 3:	system("cls");
-				nominal[k] = 1000000;
-				limitTarik = limitTarik + nominal[k];
-				benar = validitasTransaksi(nominal);
-				if (benar == 1){
-					user.total_saldo = user.total_saldo - nominal[k];
+				if(limitTarik > 10000000){
+					system("cls");
 					displayLoading();
 					sleep(5);
 					system("cls");
-					displayTransaksiBerhasil();
-					gotoxy(49,9);
-					printf("SISA SALDO ANDA: %d",user.total_saldo);
-					catatTransaksiMasuk(DaftarMutasi);
-					transaksi[k] = 1;
-					k = k + 1;
-					
-					GO7:
+					displayTransaksiGagallimit();
+					GO3:
 					gotoxy(88, 24);
 					konfirmasi = getch();
 					switch(konfirmasi){
-						case '5' : goto KEMBALI;
-								break;
-						case '6' : 	system("cls");
-									displayEnd();
-									sleep(5);
-									exit(0);
+						case '5' : 
+							goto KEMBALI;
+							break;
+						case '6' :
+							system("cls");
+							displayEnd();
+							sleep(5);
+							exit(0);
 						default:
-							goto GO7;
+							goto GO3;
 					}
 				}
-				else {
-					if(user.total_saldo - nominal[k] < 10000){
+			}
+			break;
+		case 2: 
+			system("cls");
+			nominal [k]= 500000;
+			limitTarik = limitTarik + nominal[k];
+			benar = validitasTransaksi(nominal);
+			if (benar == 1){
+				user.total_saldo = user.total_saldo - nominal[k];
+				displayLoading();
+				sleep(5);
+				system("cls");
+				displayTransaksiBerhasil();
+				gotoxy(49,9);
+				printf("SISA SALDO ANDA: %d",user.total_saldo);
+				catatTransaksiMasuk(DaftarMutasi);
+				transaksi[k] = 1;
+				k = k + 1;				
+				GO4:
+				gotoxy(88, 24);
+				konfirmasi = getch();
+				switch(konfirmasi){
+					case '5' : 
+						goto KEMBALI;
+						break;
+					case '6' : 	
 						system("cls");
-						displayLoading();
+						displayEnd();
 						sleep(5);
-						system("cls");
-						displayTransaksiGagal();
-						
-						GO8:
-						gotoxy(88, 24);
-						konfirmasi = getch();
-						switch(konfirmasi){
-							case '5' : goto KEMBALI;
-									break;
-							case '6' : 	system("cls");
-										displayEnd();
-										sleep(5);
-										exit(0);
-							default:
-								goto GO8;
-						}
-					}
-					if(limitTarik > 10000000){
-						system("cls");
-						displayLoading();
-						sleep(5);
-						system("cls");
-						displayTransaksiGagallimit();
-						
-						GO9:
-						gotoxy(88, 24);
-						konfirmasi = getch();
-						switch(konfirmasi){
-							case '5' : goto KEMBALI;
-									break;
-							case '6' : 	system("cls");
-										displayEnd();
-										sleep(5);
-										exit(0);
-							default:
-								goto GO9;
-						}
-					}
+						exit(0);
+					default:
+						goto GO4;
 				}
-				break;
-		case 4: system("cls");
-				nominal[k] = 1250000;
-				limitTarik = limitTarik + nominal[k];
-				benar = validitasTransaksi(nominal);
-				if (benar == 1){
-					user.total_saldo = user.total_saldo - nominal[k];
+			}
+			else {
+				if(user.total_saldo - nominal[k] < 10000){
+					system("cls");
 					displayLoading();
 					sleep(5);
 					system("cls");
-					displayTransaksiBerhasil();
-					gotoxy(50,16);
-					printf("SISA SALDO ANDA: %d",user.total_saldo);
-					catatTransaksiMasuk(DaftarMutasi);
-					transaksi[k] = 1;
-					k = k + 1;
-				
-					GO10:
+					displayTransaksiGagal();					
+					GO5:
 					gotoxy(88, 24);
 					konfirmasi = getch();
 					switch(konfirmasi){
-						case '5' : goto KEMBALI;
-								break;
-						case '6' : 	system("cls");
-									displayEnd();
-									sleep(5);
-									exit(0);
+						case '5' : 
+							goto KEMBALI;
+							break;
+						case '6' :
+							system("cls");
+							displayEnd();
+							sleep(5);
+							exit(0);
 						default:
-								goto GO10;
+							goto GO5;
 					}
 				}
-				else {
-					if(user.total_saldo - nominal[k] < 10000){
-						system("cls");
-						displayLoading();
-						sleep(5);
-						system("cls");
-						displayTransaksiGagal();
-					
-						GO11:
-						gotoxy(88, 24);
-						konfirmasi = getch();
-						switch(konfirmasi){
-							case '5' : goto KEMBALI;
-									break;
-							case '6' : 	system("cls");
-										displayEnd();
-										sleep(5);
-										exit(0);
-							default:
-								goto GO11;
-						}
-					}
-					if(limitTarik > 10000000){
-						system("cls");
-						displayLoading();
-						sleep(5);
-						system("cls");
-						displayTransaksiGagallimit();
-					
-						GO12:
-						gotoxy(88, 24);
-						konfirmasi = getch();
-						switch(konfirmasi){
-							case '5' : goto KEMBALI;
-									break;
-							case '6' : 	system("cls");
-										displayEnd();
-										sleep(5);
-										exit(0);
-							default:
-								goto GO12;
-						}
+				if(limitTarik > 10000000){
+					system("cls");
+					displayLoading();
+					sleep(5);
+					system("cls");
+					displayTransaksiGagallimit();					
+					GO6:
+					gotoxy(88, 24);
+					konfirmasi = getch();
+					switch(konfirmasi){
+						case '5' : 
+							goto KEMBALI;
+							break;
+						case '6' : 
+							system("cls");
+							displayEnd();
+							sleep(5);
+							exit(0);
+						default:
+							goto GO6;
 					}
 				}
-				break;
-		case 5: system("cls");
-				MenuJumlahLain(); //Memanggil Modul MenuJumlahLain();
-				break;
-		case 6: MenuLainnya(); //Memanggil Modul MenuLainnya();
-				break;
-				
+			}
+			break;
+		case 3:	
+			system("cls");
+			nominal[k] = 1000000;
+			limitTarik = limitTarik + nominal[k];
+			benar = validitasTransaksi(nominal);
+			if (benar == 1){
+				user.total_saldo = user.total_saldo - nominal[k];
+				displayLoading();
+				sleep(5);
+				system("cls");
+				displayTransaksiBerhasil();
+				gotoxy(49,9);
+				printf("SISA SALDO ANDA: %d",user.total_saldo);
+				catatTransaksiMasuk(DaftarMutasi);
+				transaksi[k] = 1;
+				k = k + 1;					
+				GO7:
+				gotoxy(88, 24);
+				konfirmasi = getch();
+				switch(konfirmasi){
+					case '5' : 
+						goto KEMBALI;
+						break;
+					case '6' : 	
+						system("cls");
+						displayEnd();
+						sleep(5);
+						exit(0);
+					default:
+						goto GO7;
+				}
+			}
+			else {
+				if(user.total_saldo - nominal[k] < 10000){
+					system("cls");
+					displayLoading();
+					sleep(5);
+					system("cls");
+					displayTransaksiGagal();						
+					GO8:
+					gotoxy(88, 24);
+					konfirmasi = getch();
+					switch(konfirmasi){
+						case '5' : 
+							goto KEMBALI;
+							break;
+						case '6' : 	
+							system("cls");
+							displayEnd();
+							sleep(5);
+							exit(0);
+						default:
+							goto GO8;
+					}
+				}
+				if(limitTarik > 10000000){
+					system("cls");
+					displayLoading();
+					sleep(5);
+					system("cls");
+					displayTransaksiGagallimit();	
+					GO9:
+					gotoxy(88, 24);
+					konfirmasi = getch();
+					switch(konfirmasi){
+						case '5' :
+							goto KEMBALI;
+							break;
+						case '6' : 
+							system("cls");
+							displayEnd();
+							sleep(5);
+							exit(0);
+						default:
+							goto GO9;
+					}
+				}
+			}
+			break;
+		case 4: 
+			system("cls");
+			nominal[k] = 1250000;
+			limitTarik = limitTarik + nominal[k];
+			benar = validitasTransaksi(nominal);
+			if (benar == 1){
+				user.total_saldo = user.total_saldo - nominal[k];
+				displayLoading();
+				sleep(5);
+				system("cls");
+				displayTransaksiBerhasil();
+				gotoxy(50,16);
+				printf("SISA SALDO ANDA: %d",user.total_saldo);
+				catatTransaksiMasuk(DaftarMutasi);
+				transaksi[k] = 1;
+				k = k + 1;	
+				GO10:
+				gotoxy(88, 24);
+				konfirmasi = getch();
+				switch(konfirmasi){
+					case '5' : 
+						goto KEMBALI;
+						break;
+					case '6' :
+						system("cls");
+						displayEnd();
+						sleep(5);
+						exit(0);
+					default:
+						goto GO10;
+				}
+			}
+			else {
+				if(user.total_saldo - nominal[k] < 10000){
+					system("cls");
+					displayLoading();
+					sleep(5);
+					system("cls");
+					displayTransaksiGagal();					
+					GO11:
+					gotoxy(88, 24);
+					konfirmasi = getch();
+					switch(konfirmasi){
+						case '5' : 
+							goto KEMBALI;
+							break;
+						case '6' :
+							system("cls");
+							displayEnd();
+							sleep(5);
+							exit(0);
+						default:
+							goto GO11;
+					}
+				}
+				if(limitTarik > 10000000){
+					system("cls");
+					displayLoading();
+					sleep(5);
+					system("cls");
+					displayTransaksiGagallimit();					
+					GO12:
+					gotoxy(88, 24);
+					konfirmasi = getch();
+					switch(konfirmasi){
+						case '5' : 
+							goto KEMBALI;
+							break;
+						case '6' :
+							ystem("cls");
+							displayEnd();
+							sleep(5);
+							exit(0);
+						default:
+							goto GO12;
+					}
+				}
+			}
+			break;
+		case 5: 
+			system("cls");
+			MenuJumlahLain(); //Memanggil Modul MenuJumlahLain();
+			break;
+		case 6: 
+			MenuLainnya(); //Memanggil Modul MenuLainnya();
+			break;		
 		default:
 			goto KEMBALI;
 	}
@@ -765,20 +814,21 @@ void MenuJumlahLain(){
 				printf("SISA SALDO ANDA: %d",user.total_saldo);
 				catatTransaksiMasuk(DaftarMutasi);
 				transaksi[k] = 1;
-				k = k + 1;	
-				
+				k = k + 1;					
 				GO13:
 				gotoxy(88, 24);
 				konfirmasi = getch();
 				switch(konfirmasi){
-					case '5' : MenuPenarikanCepat();
-								break;
-					case '6' : 	system("cls");
-								displayEnd();
-								sleep(5);
-								exit(0);
+					case '5' : 
+						MenuPenarikanCepat();
+						break;
+					case '6' :
+						system("cls");
+						displayEnd();
+						sleep(5);
+						exit(0);
 					default:
-								goto GO13;
+						goto GO13;
 				}
 			}
 			else {
@@ -792,14 +842,16 @@ void MenuJumlahLain(){
 					gotoxy(88, 24);
 					konfirmasi = getch();
 					switch(konfirmasi){
-						case '5' : MenuPenarikanCepat();
-								break;
-						case '6' : 	system("cls");
-									displayEnd();
-									sleep(5);
-									exit(0);
+						case '5' : 
+							MenuPenarikanCepat();
+							break;
+						case '6' : 	
+							system("cls");
+							displayEnd();
+							sleep(5);
+							exit(0);
 						default:
-									goto GO14;
+							goto GO14;
 					}
 				}
 				if(limitTarik > 10000000){
@@ -812,14 +864,16 @@ void MenuJumlahLain(){
 					gotoxy(88, 24);
 					konfirmasi = getch();
 					switch(konfirmasi){
-						case '5' : MenuPenarikanCepat();
-								break;
-						case '6' : 	system("cls");
-									displayEnd();
-									sleep(5);
-									exit(0);
+						case '5' : 
+							MenuPenarikanCepat();
+							break;
+						case '6' : 	
+							system("cls");
+							displayEnd();
+							sleep(5);
+							exit(0);
 						default:
-									goto GO15;
+							goto GO15;
 					}
 				}
 			}
@@ -834,14 +888,16 @@ void MenuJumlahLain(){
 			gotoxy(88, 24);
 			konfirmasi = getch();
 			switch(konfirmasi){
-				case '5' : MenuPenarikanCepat();
-							break;
-				case '6' : 	system("cls");
-							displayEnd();
-							sleep(5);
-							exit(0);
+				case '5' : 
+					MenuPenarikanCepat();
+					break;
+				case '6' :
+					system("cls");
+					displayEnd();
+					sleep(5);
+					exit(0);
 				default:
-							goto GO20;
+					goto GO20;
 			}	
 		}
 	}
@@ -877,26 +933,33 @@ void MenuLainnya(){
 	system("cls");
 	displayMenuLainnya(); //Memanggil modul display menu lainnya
 	KEMBALI:
-    scanf("%d",&opsi);
-    switch(opsi){
-    	case 1: MenuTransfer(); //Memanggil modul menu untuk transfer
+    	scanf("%d",&opsi);
+    	switch(opsi){
+    		case 1: 
+			MenuTransfer(); //Memanggil modul menu untuk transfer
     			break;
-    	case 2: Menu_setor(); //Memanggil modul menu untuk setor tunai
+    		case 2: 
+			Menu_setor(); //Memanggil modul menu untuk setor tunai
     			break;
-    	case 3: MenuInformasiSaldo(); //Memanggil modul menu untuk melihat informasi saldo
+    		case 3: 
+			MenuInformasiSaldo(); //Memanggil modul menu untuk melihat informasi saldo
     			break;
-    	case 4: MenuUbahPin(); //Memanggil modul menu untuk ubah pin
+    		case 4: 
+			MenuUbahPin(); //Memanggil modul menu untuk ubah pin
     			break;
-    	case 5: system("cls");
-				displayLoading();
-				sleep(5);
-				LihatMutasi(DaftarMutasi); //Memanggil modul menu untuk melihat mutasi rekening
+    	
+		case 5: 
+			system("cls");
+			displayLoading();
+			sleep(5);
+			LihatMutasi(DaftarMutasi); //Memanggil modul menu untuk melihat mutasi rekening
     			break;
-    	case 6: MenuPenarikanCepat(); //Memanggil modul menu sebelumnya yaitu penarikan cepat
+    		case 6: 
+			MenuPenarikanCepat(); //Memanggil modul menu sebelumnya yaitu penarikan cepat
     			break;
-    	default :
+    		default :
     			MenuLainnya(); //Memanggil modulnya sendiri jika default
-    }
+    	}
 }
 
 // Modul Menu Transfer
@@ -915,69 +978,70 @@ void MenuTransfer(){
 		scanf("%d",&opsi);
 		switch(opsi){
 			case 4 : 
-		    	    system("cls");
+				system("cls");
 		        	displayProsesTransfer(); //Memanggil modul untuk menampilkan display proses transfer
 		    		gotoxy(56,8);
-             		scanf("%d", &nominal[k]);
-             		limittrf = limittrf + nominal[k]; //Assignment untuk batas limit transfer
-					cek_ValiditasTransfer( &benar); //Memanggil modul untuk validasi Nominal Transfer
+             			scanf("%d", &nominal[k]);
+             			limittrf = limittrf + nominal[k]; //Assignment untuk batas limit transfer
+				cek_ValiditasTransfer( &benar); //Memanggil modul untuk validasi Nominal Transfer
 		        	if (benar==1){
-             			if (nominal[k]>=50000){
-             				user.total_saldo=user.total_saldo-nominal[k]-admin;
-             				system("cls");
-             				displaykonfirmasitrf(); //Memanggil modul untuk menampilkan display konfirmasi transfer
-             				konfirmasitrf(); //Memanggil modul untuk konfirmasi Transfer
-             				
-             				catatTransaksiMasuk(DaftarMutasi);
-             				transaksi[k] = 2;
-							 k = k + 1;
+             				if (nominal[k]>=50000){
+             					user.total_saldo=user.total_saldo-nominal[k]-admin;
+             					system("cls");
+             					displaykonfirmasitrf(); //Memanggil modul untuk menampilkan display konfirmasi transfer
+             					konfirmasitrf(); //Memanggil modul untuk konfirmasi Transfer	
+             					catatTransaksiMasuk(DaftarMutasi);
+             					transaksi[k] = 2;
+						 k = k + 1;
 							
-             				system("cls");
-             				displaygoodtransfer(); //Memanggil modul untuk menampilkan transfer berhasil
-             				if (bhs == 1){
-								gotoxy(50,15);
-	             				printf("SISA SALDO ANDA : %d", user.total_saldo);
-             				}
-             				else if(bhs == 2){
-             					gotoxy(45,15);
-	             				printf("YOUR REMAINING BALANCE : %d", user.total_saldo);
-							 }
-             				MenuKonfirmasi();
-							
-							DO:
-							gotoxy(88, 24);
-							konfirmasi = getch();
-							switch(konfirmasi){
-								case '5' : 
-											MenuLainnya();
-											break;
-								case '6' : 	
-											system("cls");
-											displayEnd();
-											sleep(5);
-											exit(0);
-								default:
-											goto DO;
-             				}
+             					system("cls");
+             					displaygoodtransfer(); //Memanggil modul untuk menampilkan transfer berhasil
+             					if (bhs == 1){
+							gotoxy(50,15);
+	             					printf("SISA SALDO ANDA : %d", user.total_saldo);
+             					}
+             					else if(bhs == 2){
+             						gotoxy(45,15);
+	             					printf("YOUR REMAINING BALANCE : %d", user.total_saldo);
 						}
-						else{
-							system("cls");
-							displayLoading();
-							sleep(5);
-							system("cls");
-							displayGagalMin();
-							GO21:
-							gotoxy(88, 24);
-							konfirmasi = getch();
-							switch(konfirmasi){
-								case '5' : MenuPenarikanCepat();
-											break;
-								case '6' : 	system("cls");
-											displayEnd();
-											sleep(5);
-											exit(0);
-								default:
-											goto GO21;
+             					MenuKonfirmasi();
+							
+						DO:
+						gotoxy(88, 24);
+						konfirmasi = getch();
+						switch(konfirmasi){
+							case '5' : 
+								MenuLainnya();
+								break;
+							case '6' : 	
+								system("cls");
+								displayEnd();
+								sleep(5);
+								exit(0);
+							default:
+								goto DO;
+             					}
+					}
+					else{
+						system("cls");
+						displayLoading();
+						sleep(5);
+						system("cls");
+						displayGagalMin();
+						GO21:
+						gotoxy(88, 24);
+						konfirmasi = getch();
+						switch(konfirmasi){
+							case '5' : 
+								MenuPenarikanCepat();
+								break;
+							case '6' : 	
+								system("cls");
+								displayEnd();
+								sleep(5);
+								exit(0);
+							default:
+								goto GO21;
 							}	
 						}	 
 		    		}
@@ -987,22 +1051,21 @@ void MenuTransfer(){
 				    		displayLoading();
 				    		sleep(5);
 				    		system("cls");
-				    		displaytransfergagal();
-			    	
-							DO2:
-							gotoxy(88, 24);
-							konfirmasi = getch();
-							switch(konfirmasi){
-								case '5' : 
-											MenuLainnya();
-											break;
-								case '6' : 	
-											system("cls");
-											displayEnd();
-											sleep(5);
-											exit(0);
-								default:
-											goto DO2;
+				    		displaytransfergagal();			    	
+						DO2:
+						gotoxy(88, 24);
+						konfirmasi = getch();
+						switch(konfirmasi){
+							case '5' : 
+								MenuLainnya();
+								break;
+							case '6' : 	
+								system("cls");
+								displayEnd();
+								sleep(5);
+								exit(0);
+							default:
+								goto DO2;
 							}
 						}	
 						if(limittrf>1000000){
@@ -1016,15 +1079,15 @@ void MenuTransfer(){
 							konfirmasi = getch();
 							switch(konfirmasi){
 								case '5' : 
-											MenuLainnya();
-											break;
+									MenuLainnya();
+									break;
 								case '6' : 	
-											system("cls");
-											displayEnd();
-											sleep(5);
-											exit(0);
+									system("cls");
+									displayEnd();
+									sleep(5);
+									exit(0);
 								default:
-											goto DO3;
+									goto DO3;
 							}
 						}
 					}
@@ -1045,18 +1108,18 @@ void MenuTransfer(){
 //Modul cek validitas no.rekening
 int cek_ValiditasNorek(int *Betul){
 	if((strcmp(No_Rek, penerima.No_Rekening)==0)&&user.total_saldo-nominal[k]>=10000&&limittrf <=10000000){
-     	*Betul=1;
+     		*Betul=1;
  	}
-    else {
+    	else {
 		*Betul=0;
 	}
 	return *Betul;
  }
 //Modul cek validitas nominal transfer
 int cek_ValiditasTransfer(int *Betul){
-    if(user.total_saldo-nominal[k]>=10000&&limittrf <=10000000){
-     	*Betul=1;
-    }
+	if(user.total_saldo-nominal[k]>=10000&&limittrf <=10000000){
+     		*Betul=1;
+    	}
    	else {
 		*Betul=0;
 	}
@@ -1069,18 +1132,18 @@ void konfirmasitrf(){
  	scanf("%d", &opsi);
  	switch (opsi){
  		case 5 : 
-				system("cls");
+			system("cls");
            		displayLoading();
-            	sleep(5);
-             	system("cls");
-             	displayTransaksiBerhasil();
-             	break;
-        case 6 :    
-				MenuTransfer();
+            		sleep(5);
+             		system("cls");
+             		displayTransaksiBerhasil();
+             		break;
+        	case 6 :    
+			MenuTransfer();
 		default :
-				konfirmasitrf();	
+			konfirmasitrf();	
 	}
- }
+}
  
  //Modul transaksi lainnya
  void MenuKonfirmasi(){
@@ -1088,17 +1151,17 @@ void konfirmasitrf(){
  	scanf("%d", &opsi);
  	switch (opsi){
  		case 5 : 
-				system("cls");
-             	MenuLainnya();
+			system("cls");
+             		MenuLainnya();
            		break;
   	  	case 6:  
-				system("cls");
-				displayEnd();
-				sleep(5);
-				exit(0);
+			system("cls");
+			displayEnd();
+			sleep(5);
+			exit(0);
         		break;
 		default : 
-				MenuKonfirmasi();		
+			MenuKonfirmasi();		
  	}
 }
 
@@ -1119,7 +1182,7 @@ void Menu_setor(){
 		system("cls");
 		displaysetorberhasil();
 		catatTransaksiMasuk(DaftarMutasi);
-        transaksi[k] = 3;
+        	transaksi[k] = 3;
 		k = k + 1;
 		
 		gotoxy(60,13);
@@ -1147,10 +1210,10 @@ int cekvalid_setor(int *betul){
 	limitSetor = limitSetor + nominal[k];
 	if(nominal[k] % 50000 == 0 && limitSetor <= 5000000){
 		*betul=1;
- 	   	}
- 	   else {
+	}
+ 	else {
 		*betul=0;
-		}
+	}
 	return *betul;
 }
 
@@ -1163,12 +1226,13 @@ void bacasetorlagi(){
 		       MenuLainnya();
 		       break;
 		case 6 : 
-				system("cls");
-				displayEnd();
-				sleep(5);
-				exit(0);
+			system("cls");
+			displayEnd();
+			sleep(5);
+			exit(0);
 	    		break;
-	    default: bacasetorlagi();
+	    default: 
+			bacasetorlagi();
 	}
 }
 
@@ -1182,14 +1246,17 @@ void MenuInformasiSaldo(){
 	displayInformasiSaldo();
 	scanf("%d", &opsi);
 	switch (opsi){
-		case 5: MenuLainnya();
-				break;
-		case 6: system("cls");
-				displayEnd();
-				sleep(5);
-				exit(0);
-				break;
-		default : MenuInformasiSaldo();
+		case 5: 
+			MenuLainnya();
+			break;
+		case 6: 
+			system("cls");
+			displayEnd();
+			sleep(5);
+			exit(0);
+			break;
+		default : 
+			MenuInformasiSaldo();
 	}
 }
 
@@ -1212,18 +1279,17 @@ void InputPinLama(){
 }
 
 void MasukkanPinBaru(){
-
 	benar = 0;
 	system("cls");
 	displayPinBaru();
 	gotoxy(53, 11);
-    for(int i = 0; i < 6; i++){
-        inputPinBaru[i] = _getch();
-        putchar('*');
-        putchar(' ');
-    }
+	for(int i = 0; i < 6; i++){
+        	inputPinBaru[i] = _getch();
+        	putchar('*');
+        	putchar(' ');
+    	}
     	i = 1;
-    system("cls");
+    	system("cls");
 	displaykonfirmasiPin();
 	while(benar == 0 && i<=3){
 		bacaKonfirmasiPinBaru(konfirmasiPin); //Modul untuk baca konfirmasi pin baru
@@ -1238,13 +1304,15 @@ void MasukkanPinBaru(){
 		displayUbahPinBerhasil();
 		scanf("%d", &opsi);
 		switch (opsi){
-			case 5: system("cls");
-					MenuLainnya();	
-					break;
-			case 6: system("cls");
-					displayEnd();
-					sleep(5);
-					exit(0);
+			case 5: 
+				system("cls");
+				MenuLainnya();	
+				break;
+			case 6: 
+				system("cls");
+				displayEnd();
+				sleep(5);
+				exit(0);
 			default:
 				goto PINBERHASIL;
 		}
@@ -1256,18 +1324,18 @@ void bacaKonfirmasiPinBaru(char konfirmasiPin[7]){
 	system("cls");
 	displaykonfirmasiPin();
 	gotoxy(53, 11);
-    for(int i = 0; i < 6; i++){
-        konfirmasiPin[i] = _getch();
-        putchar('*');
-        putchar(' ');
-    }
+	for(int i = 0; i < 6; i++){
+        	konfirmasiPin[i] = _getch();
+        	putchar('*');
+        	putchar(' ');
+   	}
 }
 //Modul validasi pin baru
 int Cek_validitasPinBaru(int *benar, char inputPinBaru[7], char konfirmasiPin[7]){
 	if(strcmp(inputPinBaru,konfirmasiPin)==0){
 		strcpy(user.Pin, inputPinBaru);
 		strcpy(inputPin, inputPinBaru);
-    	*benar=1;
+    		*benar=1;
 	}
 	else if(i<3){
 		*benar = 0;
@@ -1281,12 +1349,14 @@ int Cek_validitasPinBaru(int *benar, char inputPinBaru[7], char konfirmasiPin[7]
 		displayUbahPinGagal();
 		scanf("%d", &opsi);
 		switch (opsi){
-			case 5: MenuLainnya();
-					break;
-			case 6: system("cls");
-					displayEnd();
-					sleep(5);
-					exit(0);
+			case 5: 
+				MenuLainnya();
+				break;
+			case 6: 
+				system("cls");
+				displayEnd();
+				sleep(5);
+				exit(0);
 			default:
 				goto PINGAGALBARU;
 		}
@@ -1328,29 +1398,29 @@ void LihatMutasi(Nasabah DaftarMutasi[]){
 //Prosedur Display
 
 void gotoxy(int x, int y){
-    COORD coord;
+    	COORD coord;
 	coord.X = x;
-    coord.Y = y;
-    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE),coord);
+	coord.Y = y;
+    	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE),coord);
 }
 
 void printToxy(int x, int y, char* label){
-    gotoxy(x,y);
-    printf("%s",label);
+	gotoxy(x,y);
+    	printf("%s",label);
 }
 
 void header(){
 	for (int i = 1; i<25; i++){
-    	printToxy(15,1+i,"||");
+    		printToxy(15,1+i,"||");
 	}
 	for (int i =0; i<=119; i++){
-    	printToxy(0+i,1,"=");
+    		printToxy(0+i,1,"=");
 	}
 	for (int i = 1; i<25; i++){
-    	printToxy(100,1+i,"||");
+    		printToxy(100,1+i,"||");
 	}
 	for (int i =0; i<=119; i++){
-    	printToxy(0+i,25,"=");
+    		printToxy(0+i,25,"=");
 	}
 }
 
