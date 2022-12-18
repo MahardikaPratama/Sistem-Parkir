@@ -85,7 +85,7 @@ void bacaJumlahTrf();
 	*/
 
 void konfirmasitrf();
-/* Prosedur konfirmasi menampilkan data validitas transaksi transfer
+/* Prosedur konfirmasi data validitas transaksi transfer
 	I.S: Belum menampilkan data validitas transaksi transfer
 	F.S: Sudah menampilkan data validitas transaksi transfer
 	*/
@@ -115,7 +115,7 @@ int cekvalid_setor(int *betul);
 	*/
 
 void bacasetorlagi();
-/*prosedur untuk menampilkan pilihan setor lagi atau tidak
+/*prosedur untuk memproses pilihan setor lagi atau tidak
 I.S : Tampilan untuk pilihan setor lagi atau tidak belum tercetak
 F.S : Tampilan untuk pilihan setor lagi atau tidak sudah tercetak
 */
