@@ -3,7 +3,7 @@
 	Kelompok	: 9
 	Kelas		: 1B
 	Anggota		:
-			      - Keanu Rayhan Harist (221524043)
+			      	  - Keanu Rayhan Harist (221524043)
 				  - Mahardika Pratama (221524044)
 				  - Reza Maulana Aziiz (221524057)
 	Tanggal		: 14 Desember 2022
@@ -21,7 +21,7 @@
 typedef struct{
 	char No_Rekening[10];
    	char Nama[30];
-    char Pin[7];
+   	char Pin[7];
 	char Bank[10];
 	int total_saldo;
 }Nasabah;
@@ -458,9 +458,9 @@ void menuBahasa(){
 	int opsi;
 	system("cls");
 	displayMenuBahasa();	
-    scanf("%d",&opsi);
-    switch(opsi){
-    	case 4: bahasa = 1; // bahasa indonesia
+   	scanf("%d",&opsi);
+    	switch(opsi){
+    		case 4: bahasa = 1; // bahasa indonesia
 				system ("cls");
     			MasukkanPin(bahasa);  //	Memanggil modul memasukkan pin
 				break;
@@ -468,7 +468,7 @@ void menuBahasa(){
 		   		system ("cls");		
     			MasukkanPin(bahasa);	
     			break;
-    	default :
+    		default :
         		menuBahasa();
     }
 }
@@ -496,10 +496,10 @@ void MasukkanPin(int bhs){
 void bacaPin(char inputPin[7]){
 	int i;
 	gotoxy(53, 13);
-    for(i = 0; i < 6; i++){
-        inputPin[i] = _getch();
-        putchar('*');
-        putchar(' ');
+    	for(i = 0; i < 6; i++){
+		inputPin[i] = _getch();
+		putchar('*');
+		putchar(' ');
     }
 }
 
@@ -1489,6 +1489,91 @@ void displayTidakTerdaftar(){
 		
 }
 
+void displaybuatakun(){
+	int i;
+	header();
+	printToxy(50,3,"SILAKAN MASUKKAN");
+	printToxy(51,4,"KARTU ATM ANDA");
+	printToxy(42,5,"=================================");
+	printToxy(7,9,"[1] =>");
+	printToxy(7,13,"[2] =>");
+	printToxy(7,17,"[3] =>");
+	printToxy(105,9,"<= [4]");
+	printToxy(105,13,"<= [5]");
+	printToxy(105,17,"<= [6]");
+	for(i=1; i<35;i++){
+		printToxy(20+i,9,"_");
+	}
+	for(i=1; i<10;i++){
+		printToxy(20,9+i,"|");
+	}
+	for(i=1; i<35;i++){
+		printToxy(20+i,18,"_");
+	}
+	for(i=1; i<16;i++){
+		printToxy(55,6+i,"|");
+	}
+	for(i=1; i<3;i++){
+		printToxy(55+i,6,"_");
+	}
+	for(i=1; i<16;i++){
+		printToxy(58,6+i,"|");
+	}
+	for(i=1; i<3;i++){
+		printToxy(55+i,21,"_");
+	}
+	
+	printToxy(24,10,"_______");
+	printToxy(24,12,"_______");
+	printToxy(23,11,"|");
+	printToxy(23,12,"|");
+	printToxy(31,12,"|");
+	printToxy(31,11,"|");	
+}
+
+void displayAkunBerhasil(){
+	int i;
+	header();
+	printToxy(50,3,"KARTU ATM TELAH");
+	printToxy(48,4,"BERHASIL DIDAFTARKAN");
+	printToxy(42,5,"=================================");
+	printToxy(7,9,"[1] =>");
+	printToxy(7,13,"[2] =>");
+	printToxy(7,17,"[3] =>");
+	printToxy(105,9,"<= [4]");
+	printToxy(105,13,"<= [5]");
+	printToxy(105,17,"<= [6]");
+	for(i=1; i<35;i++){
+		printToxy(20+i,9,"_");
+	}
+	for(i=1; i<10;i++){
+		printToxy(20,9+i,"|");
+	}
+	for(i=1; i<35;i++){
+		printToxy(20+i,18,"_");
+	}
+	for(i=1; i<16;i++){
+		printToxy(55,6+i,"|");
+	}
+	for(i=1; i<3;i++){
+		printToxy(55+i,6,"_");
+	}
+	for(i=1; i<16;i++){
+		printToxy(58,6+i,"|");
+	}
+	for(i=1; i<3;i++){
+		printToxy(55+i,21,"_");
+	}
+	
+		printToxy(24,10,"_______");
+		printToxy(24,12,"_______");
+		printToxy(23,11,"|");
+		printToxy(23,12,"|");
+		printToxy(31,12,"|");
+		printToxy(31,11,"|");
+			
+}
+
 void displayMenuBahasa(){
 	header();
 	printToxy(50,3,"PEMILIHAN BAHASA");
@@ -2307,92 +2392,4 @@ void displaySaldoAtmHabis(int bhs){
 	printToxy(105,13,"<= [5]");
 	printToxy(105,17,"<= [6]");			
 }
-
-void displayAkunBerhasil(){
-	int i;
-	header();
-	printToxy(50,3,"KARTU ATM TELAH");
-	printToxy(48,4,"BERHASIL DIDAFTARKAN");
-	printToxy(42,5,"=================================");
-	printToxy(7,9,"[1] =>");
-	printToxy(7,13,"[2] =>");
-	printToxy(7,17,"[3] =>");
-	printToxy(105,9,"<= [4]");
-	printToxy(105,13,"<= [5]");
-	printToxy(105,17,"<= [6]");
-	for(i=1; i<35;i++){
-		printToxy(20+i,9,"_");
-	}
-	for(i=1; i<10;i++){
-		printToxy(20,9+i,"|");
-	}
-	for(i=1; i<35;i++){
-		printToxy(20+i,18,"_");
-	}
-	for(i=1; i<16;i++){
-		printToxy(55,6+i,"|");
-	}
-	for(i=1; i<3;i++){
-		printToxy(55+i,6,"_");
-	}
-	for(i=1; i<16;i++){
-		printToxy(58,6+i,"|");
-	}
-	for(i=1; i<3;i++){
-		printToxy(55+i,21,"_");
-	}
-	
-		printToxy(24,10,"_______");
-		printToxy(24,12,"_______");
-		printToxy(23,11,"|");
-		printToxy(23,12,"|");
-		printToxy(31,12,"|");
-		printToxy(31,11,"|");
-		
-		
-}
-      
-  void displaybuatakun(){
-	int i;
-	header();
-	printToxy(50,3,"SILAKAN MASUKKAN");
-	printToxy(51,4,"KARTU ATM ANDA");
-	printToxy(42,5,"=================================");
-	printToxy(7,9,"[1] =>");
-	printToxy(7,13,"[2] =>");
-	printToxy(7,17,"[3] =>");
-	printToxy(105,9,"<= [4]");
-	printToxy(105,13,"<= [5]");
-	printToxy(105,17,"<= [6]");
-	for(i=1; i<35;i++){
-		printToxy(20+i,9,"_");
-	}
-	for(i=1; i<10;i++){
-		printToxy(20,9+i,"|");
-	}
-	for(i=1; i<35;i++){
-		printToxy(20+i,18,"_");
-	}
-	for(i=1; i<16;i++){
-		printToxy(55,6+i,"|");
-	}
-	for(i=1; i<3;i++){
-		printToxy(55+i,6,"_");
-	}
-	for(i=1; i<16;i++){
-		printToxy(58,6+i,"|");
-	}
-	for(i=1; i<3;i++){
-		printToxy(55+i,21,"_");
-	}
-	
-	printToxy(24,10,"_______");
-	printToxy(24,12,"_______");
-	printToxy(23,11,"|");
-	printToxy(23,12,"|");
-	printToxy(31,12,"|");
-	printToxy(31,11,"|");	
-}
-             
-                       
 
