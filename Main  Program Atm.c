@@ -31,85 +31,87 @@ typedef struct{
 //Deklarasi Modul
 
 int cekvaliditasAkun(char No_Rek[10]);
+// Fungsi untuk mengembalikan nilai valid=1 jika No_Rek dari akun sudah terdaftar, akan mengembalikan valid=0 jika akun belum terdaftar
 
 void menuBahasa();
-
-
+/* Prosedur untuk memilih bahasa yang akan digunakan oleh user
+I.S : User belum memilih bahasa yang akan digunakan
+F.S : User sudah memilih bahasa yang akan digunakan
+*/
 void MasukkanPin(int bhs); 
 /* Prosedur untuk meminta user untuk masuk ke menu masukkan pin
-	I.S: Menu masukkan pin belum ditampilkan
-	F.S: Menu masukkan pin sudah ditampilkan
-	*/
+I.S : User belum menginputkan PIN atm
+F.S : User sudah menginputkan PIN atm 
+*/
 	
 void bacaPin(char inputPin[7]); 
 /*Prosedur untuk membaca input PIN
-	I.S: Input PIN belum dibaca
-	F.S: Input PIN sudah dibaca
-	*/
+I.S: User belum mengetikkan PIN dari keyboard
+F.S: User sudah mengetikkan PIN dari keyboard
+*/
 int Cek_validitas( char inputPin[7], int Valid, int *i); 
-/*Fungsi untuk mengembalikan nilai benar = 1 jika pin yang di input sesuai dengan pin user. Dan akan mengembalikan nilai benar = 0 jika pin yang di input tidak sesuai dengan pin user
-	*/
+//Fungsi untuk mengembalikan nilai benar = 1 jika pin yang di input sesuai dengan pin user. Dan akan mengembalikan nilai benar = 0 jika pin yang di input tidak sesuai dengan pin user
 	
 void MenuPenarikanCepat(int bhs, char inputPin[7]); 
 /* Prosedur untuk modul fitur Penarikan Cepat
-	I.S: Belum menampilkan menu fitur Penarikan Cepat
-	F.S: Sudah menampilkan menu fitur Penarikan Cepat
-	*/
+I.S: User belum memilih nominal yang ada pada fitur penarikan cepat 
+F.S: User sudah memilih nominal yang ada pada fitur penarikan cepat 
+*/
 int validitasTransaksi(int bhs, char inputPin[7], int nominal[], int batasTarik);
 /* Fungsi untuk mengembalikan nilai Valid jika jumlah transaksi sesuai dengan aturan yaitu saldo sisa transaksi >= Rp.10000 dan limit penarikan<= Rp.10000000
-	*/
+*/
 void MenuJumlahLain(int bhs, int nominal[], int *batasTarik, int *jml_transaksi, int transaksi[],char inputPin[7]); 
 /* Prosedur untuk menu fitur Jumlah Lain
-	I.S: Belum menampilkan menu fitur MenuJumlahLain
-	F.S: Sudah menampilkan menu fitur MenuJumlahLain
-	*/
+I.S: User belum memilih fitur MenuJumlahLain
+F.S: User belum memilih fitur MenuJumlahLain
+*/
 void bacaJumlahLain(int nominal[]); 
 /*Prosedur untuk membaca input jumlah nominal yang akan ditarik
-	I.S: Input jumlah nominal belum dibaca
-	F.S: Input jumlah nominal sudah dibaca
-	*/
+I.S: User belum mengetikkan  jumlah nominal yang lain dari keyboard
+F.S: User sudah mengetikkan  jumlah nominal yang lain dari keyboard
+*/
 
 void MenuLainnya(int bhs, int nominal[], int transaksi[], char inputPin[7], int *sizeTransaksi); 
 /*Prosedur untuk modul fitur Menu Lainnya
-	I.S: Belum menampilkan modul fitur Menu Lainnya
-	F.S: Sudah menampilkan modul fitur Menu Lainnya
-	*/
+I.S: User belum memilih fitur Menu Lainnya
+F.S: User sudah memilih fitur Menu Lainnya
+*/
 void MenuTransfer(int bhs, int nominal[], int transaksi[], int *sizeTransaksi, char inputPin[7]);
 /* Prosedur untuk modul fitur Menu Transfer
-	I.S: Belum menampilkan modul fitur Menu Transfer
-	F.S: Sudah menampilkan modul fitur Menu Transfer
-	*/
+I.S: User belum memilih fitur Menu Transfer
+F.S: User sudah memilih fitur Menu Transfer
+*/
 	
 void konfirmasitrf(int bhs, int nominal[], int transaksi[], int *sizeTransaksi, char inputPin[7]);
 /* Prosedur konfirmasi menampilkan data validitas transaksi transfer
-	I.S: Belum menampilkan data validitas transaksi transfer
-	F.S: Sudah menampilkan data validitas transaksi transfer
-	*/
+I.S: User belum melihat data validitas transaksi transfer
+F.S: User sudah melihat data validitas transaksi transfer
+*/
 void MenuKonfirmasi(int bhs, int nominal[], int transaksi[], char inputPin[7],int *sizeTransaksi); 
 /* Prosedur konfirmasi dari proses transfer 
-	I.S: Belum konfirmasi transfer
-	F.S: Sudah konfirmasi transfer dengan ke menu selanjutnya
-	*/
+I.S: User belum melakukan konfirmasi transfer
+F.S: User sudah melakukan konfirmasi transfer dengan kembali ke menu selanjutnya
+*/
 int cek_ValiditasNorek(int bhs, char No_Rek[10]);
 /* Fungsi untuk mengembalikan nilai benar = 1 jika No. Rekening tujuan yang diinput sama dengan data no.rekening penerima. Dan akan mengembalikan nilai 0 jika sebaliknya
 	*/
 int cek_ValiditasTransfer(int nominal[], int batastrf);
 /* Fungsi untuk mengembalikan nilai benar = 1 jika transaksi memenuhi aturan yaitu limit transfer Rp. 10000000 dan sisa saldo minimum yang ada Rp. 10000. Dan akan mengembalikan nilai 0 jika sebaliknya.
-	*/
+*/
 
 void Menu_setor(int bhs, int nominal[], int transaksi[], int *jml_transaksi, char inputPin[7]);
 /* Prosedur untuk modul fitur Setor Tunai
-	I.S: Belum menampilkan modul fitur Setor Tunai
-	F.S: Sudah menampilkan modul fitur Setor Tunai
-	*/
+I.S: User belum melakukan Setor Tunai
+F.S: User sudah melakukan Setor Tunai
+*/
 	
 int cekvalid_setor(int nominal[], int limitsetor);	
 /* Fungsi untuk mengembalikan nilai betul= 1 jika transaksi memenuhi aturan yaitu limit setor Rp. 5000000 dan nomminal kelipatan Rp. 50000. Dan akan mengembalikan nilai 0 jika sebaliknya.
-	*/
+*/
 void bacasetorlagi(int bhs, int nominal[], int transaksi[], char inputPin[7],  int *sizeTransaksi);
 /*prosedur untuk menampilkan pilihan setor lagi atau tidak
-I.S : Tampilan untuk pilihan setor lagi atau tidak belum tercetak
-F.S : Tampilan untuk pilihan setor lagi atau tidak sudah tercetak
+I.S : User belum melakukan pilihan setor lagi atau tidak 
+F.S : User sudah melakukan pilihan setor lagi atau tidak 
 */
 
 void displayGagalMin(int bhs);
@@ -120,48 +122,48 @@ F.S : Tampilan untuk tampilan gagal karena tidak memenuhi nominal minimum sudah 
 
 void MenuInformasiSaldo(int bhs, int nominal[], int transaksi[], char inputPin[7], int *sizeTransaksi);
 /* Prosedur untuk modul dari fitur Menu Informasi Saldo
-	I.S: Belum menampilkan fitur Menu Informasi Saldo
-	F.S: Sudah menampilkan fitur Menu Informasi Saldo
-	*/
+I.S: User belum melakukan fitur Menu Informasi Saldo
+F.S: User sudah melakukan fitur Menu Informasi Saldo
+*/
 	
 
 void MenuUbahPin(int bhs, int nominal[], int transaksi[], char inputPin[7], int sizeTransaksi);
 /* Prosedur untuk modul dari fitur Menu Ubah PIN
-	I.S: Belum menampilkan fitur Menu Ubah PIN
-	F.S: Sudah menampilkan fitur Menu Ubah PIN
-	*/
+I.S: User belum mengubah PIN
+F.S: User sudah mengubah PIN
+*/
 void InputPinLama(int bhs, int nominal[], int transaksi[], char inputPin[7], int sizeTransaksi);
 /* Prosedur untuk modul memasukkan PIN Lama
-	I.S: Belum menginput dan cek validitas PIN lama
-	F.S: Sudah menginput dan cek validitas PIN lama
-	*/
+I.S: User belum menginput dan cek validitas pin lama
+F.S: User sudah menginput dan cek validitas PIN lama
+*/
 	
 void bacaKonfirmasiPinBaru(char konfirmasiPin[7], int bhs);
 /* Prosedur untuk menginput konfirmasi PIN Baru
-	I.S: Input konfirmasi PIN Baru belum dibaca
-	F.S: Input konfirmasi PIN Baru sudah dibaca
-	*/
+I.S: User belum menginput konfirmasi PIN Baru 
+F.S: User sudah menginput konfirmasi PIN Baru 
+*/
 	
 int Cek_validitasPinBaru(char inputPinBaru[7], char konfirmasiPin[7], int *i, int bhs, int nominal[], int transaksi[], char inputPin[7],  int sizeTransaksi);
 /*Fungsi untuk mengembalikan nilai benar = 1 jika pin yang di input sesuai dengan pin user. Dan akan mengembalikan nilai benar = 0 jika pin yang di input tidak sesuai dengan pin user
-	*/
+*/
 	
 void MasukkanPinBaru(int bhs, int nominal[], int transaksi[], char inputPin[7], int sizeTransaksi);
 /* Prosedur untuk modul perintah menginput PIN Baru
-	I.S: Belum menginput dan cek validitas PIN Baru
-	F.S: Sudah menginput dan cek validitas PIN Baru
-	*/
+I.S: User belum menginput dan cek validitas PIN Baru
+F.S: User sudah menginput dan cek validitas PIN Baru
+*/
 
 void catatTransaksiMasuk(int *sizeTransaksi);
 /*prosedur untuk mencatat transaksi dilakukan
-I.S : Transaksi belum dicatat
-F.S : Transaksi telah dicatat
+I.S : User belum melakukan transaksi
+F.S : User sudah melakukan transaksi
 */
 
 void LihatMutasi(int sizeTransaksi, int bhs, int nominal[], int transaksi[]);
 /*prosedur untuk menampilkan mutasi rekening
-I.S : Mutasi rekening belum ditampilkan
-F.S : Mutasi rekening sudah ditampilkan
+I.S : User belum melihat mutasi
+F.S : User sudah melihat mutasi
 */
 	
 void gotoxy(int x, int y);
@@ -184,10 +186,10 @@ void displayLoginAtm();
 /* prosedur untuk menampilkan tampilan Login ATM
 I.S : Tampilan Login ATM belum tercetak
 F.S : Tampilan Login ATM sudah tercetak
-	*/
+*/
 void displayBacaKartu();
 /* prosedur untuk menampilkan tampilan 
-	*/
+*/
 
 void displayTidakTerdaftar();
 
@@ -349,8 +351,15 @@ F.S : Tampilan untuk riwayat mutasi rekeningpermintaan konfirmasi pin baru sudah
 */
 
  void displaybuatakun();
- 
+ /*Prosedur untuk membuat kartu(akun) untuk user baru(register)
+ I.S: Kartu belum didaftarkan
+ F.S: Kartu sudah didaftarkan
+ */
  void displayAkunBerhasil();
+ /*Prosedur untuk menampilkan jika kartu berhasil diregister
+ I.S: tampilan untuk kartu berhasil diregister belum ditampilkan
+ F.S: tampilan untuk kartu berhasil diregister sudah ditampilkan
+ */
  
 
 
