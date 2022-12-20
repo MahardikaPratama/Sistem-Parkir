@@ -5,7 +5,7 @@
 typedef struct{
 	char No_Rekening[10];
    	char Nama[30];
-    char Pin[7];
+    	char Pin[7];
 	char Bank[4];
 	int total_saldo;
 }Nasabah;
@@ -200,10 +200,10 @@ F.S : Tampilan untuk riwayat mutasi rekeningpermintaan konfirmasi pin baru sudah
 
 //Deklarasi variabel Global
 Nasabah user[100] = {
-				{.No_Rekening="221524044",.Nama="Mahardika",.Pin="123456",.Bank = "BRI", .total_saldo=1000000},
-				{.No_Rekening="221524043",.Nama="Keanu",.Pin="111111",.Bank = "BCA", .total_saldo=20000},
-				{.No_Rekening="221524057",.Nama="Reza",.Pin="123123",.Bank = "BNI", .total_saldo=50000},
-			};	
+			{.No_Rekening="221524044",.Nama="Mahardika",.Pin="123456",.Bank = "BRI", .total_saldo=1000000},
+			{.No_Rekening="221524043",.Nama="Keanu",.Pin="111111",.Bank = "BCA", .total_saldo=20000},
+			{.No_Rekening="221524057",.Nama="Reza",.Pin="123123",.Bank = "BNI", .total_saldo=50000},
+};	
 //variabel untuk index nominal
 int k;
 //variabel untuk index user
@@ -221,29 +221,29 @@ int main(){
 }
 
 void gotoxy(int x, int y){
-    COORD coord;
+    	COORD coord;
 	coord.X = x;
-    coord.Y = y;
-    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE),coord);
+	coord.Y = y;
+    	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE),coord);
 }
 
 void printToxy(int x, int y, char* label){
-    gotoxy(x,y);
-    printf("%s",label);
+	gotoxy(x,y);
+    	printf("%s",label);
 }
 
 void header(){
 	for (int i = 1; i<25; i++){
-    	printToxy(15,1+i,"||");
+    		printToxy(15,1+i,"||");
 	}
 	for (int i =0; i<=119; i++){
-    	printToxy(0+i,1,"=");
+    		printToxy(0+i,1,"=");
 	}
 	for (int i = 1; i<25; i++){
-    	printToxy(100,1+i,"||");
+    		printToxy(100,1+i,"||");
 	}
 	for (int i =0; i<=119; i++){
-    	printToxy(0+i,25,"=");
+    		printToxy(0+i,25,"=");
 	}
 }
 
@@ -280,7 +280,6 @@ void displayLoginAtm(){
 	for(i=1; i<3;i++){
 		printToxy(55+i,21,"_");
 	}
-	
 	printToxy(24,10,"_______");
 	printToxy(24,12,"_______");
 	printToxy(23,11,"|");
@@ -325,15 +324,14 @@ void displayBacaKartu(){
 	for(i=1; i<3;i++){
 		printToxy(55+i,21,"_");
 	}
-	
-		printToxy(24,10,"_______");
-		printToxy(24,12,"_______");
-		printToxy(23,11,"|");
-		printToxy(23,12,"|");
-		printToxy(31,12,"|");
-		printToxy(31,11,"|");
-		printToxy(60,9,"MASUKKAN NO REKENING ANDA UNTUK");	
-		printToxy(60,10,"VALIDASI KARTU : ");		
+	printToxy(24,10,"_______");
+	printToxy(24,12,"_______");
+	printToxy(23,11,"|");
+	printToxy(23,12,"|");
+	printToxy(31,12,"|");
+	printToxy(31,11,"|");
+	printToxy(60,9,"MASUKKAN NO REKENING ANDA UNTUK");	
+	printToxy(60,10,"VALIDASI KARTU : ");		
 }
 
 void displayTidakTerdaftar(){
@@ -369,16 +367,13 @@ void displayTidakTerdaftar(){
 	for(i=1; i<3;i++){
 		printToxy(55+i,21,"_");
 	}
-	
-		printToxy(24,10,"_______");
-		printToxy(24,12,"_______");
-		printToxy(23,11,"|");
-		printToxy(23,12,"|");
-		printToxy(31,12,"|");
-		printToxy(31,11,"|");
-		
-		printToxy(60,9,"MASUKKAN NO REKENING ANDA : ");
-		
+	printToxy(24,10,"_______");
+	printToxy(24,12,"_______");
+	printToxy(23,11,"|");
+	printToxy(23,12,"|");
+	printToxy(31,12,"|");
+	printToxy(31,11,"|");
+	printToxy(60,9,"MASUKKAN NO REKENING ANDA : ");		
 }
 
 void displaybuatakun(){
@@ -413,8 +408,7 @@ void displaybuatakun(){
 	}
 	for(i=1; i<3;i++){
 		printToxy(55+i,21,"_");
-	}
-	
+	}	
 	printToxy(24,10,"_______");
 	printToxy(24,12,"_______");
 	printToxy(23,11,"|");
@@ -456,14 +450,12 @@ void displayAkunBerhasil(){
 	for(i=1; i<3;i++){
 		printToxy(55+i,21,"_");
 	}
-	
-		printToxy(24,10,"_______");
-		printToxy(24,12,"_______");
-		printToxy(23,11,"|");
-		printToxy(23,12,"|");
-		printToxy(31,12,"|");
-		printToxy(31,11,"|");
-			
+	printToxy(24,10,"_______");
+	printToxy(24,12,"_______");
+	printToxy(23,11,"|");
+	printToxy(23,12,"|");
+	printToxy(31,12,"|");
+	printToxy(31,11,"|");			
 }
 
 void displayMenuBahasa(){
@@ -485,12 +477,12 @@ void displayMenuBahasa(){
 void displayMenuPinId(int bhs){
 	header();
 	if (bhs == 1){
-	printToxy(53,3,"MASUKKAN PIN");
-	printToxy(54,4,"ATM ANDA !");
+		printToxy(53,3,"MASUKKAN PIN");
+		printToxy(54,4,"ATM ANDA !");
 	}
 	else if(bhs == 2){
-	printToxy(53,3,"ENTER YOUR");
-	printToxy(54,4,"ATM PIN !");
+		printToxy(53,3,"ENTER YOUR");
+		printToxy(54,4,"ATM PIN !");
 	}
 	printToxy(42,5,"=================================");
 	printToxy(7,9,"[1] =>");
@@ -520,8 +512,7 @@ void displaySalahPin(int bhs){
 		printToxy(49,5,"NOMOR PIN YANG BENAR ");
 		printToxy(47,16,"KARTU ANDA AKAN DIBLOKIR");
 		printToxy(43,17,"BILA ANDA SALAH PIN 3(TIGA) KALI");
-		printToxy(90,21,"KELUAR");
-		
+		printToxy(90,21,"KELUAR");	
 		
 	}
 	else if(bhs == 2){
@@ -617,7 +608,7 @@ void displayTransaksiBerhasil(int bhs){
 		printToxy(95,13,"YES");
 		printToxy(95,17,"NO");
 		printToxy(51,7,"SUCCESSFUL TRANSACTION");
-			gotoxy(49,9);
+		gotoxy(49,9);
 		printf("YOUR CURRENT BALANCE: %d", user[j].total_saldo);
 		printToxy(40,11,"DO YOU WANT TO CONTINUE THE TRANSACTION ?");
 		printToxy(60,24,"\t Enter Your Choice : ");
@@ -1284,4 +1275,3 @@ void displaySaldoAtmHabis(int bhs){
 	printToxy(105,13,"<= [5]");
 	printToxy(105,17,"<= [6]");			
 }
-
