@@ -265,6 +265,10 @@ F.S : Tampilan menu transfer sudah tercetak
 */
 
 void displayNo_RekNull(int bhs);
+/* Prosedur untuk menampilkan tampilan jika nomor rekening saat transfer tidak ada/salah
+I.S : Tampilan nomor rekening salah/tidak ada belum tercetak
+I.S : Tampilan nomor rekening salah/tidak ada sudah tercetak
+*/
 
 void displayProsesTransfer(int bhs);
 /*prosedur untuk menampilkan tampilan jika proses transfer berlangsung
