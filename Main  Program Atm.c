@@ -188,11 +188,16 @@ I.S : Tampilan Login ATM belum tercetak
 F.S : Tampilan Login ATM sudah tercetak
 */
 void displayBacaKartu();
-/* prosedur untuk menampilkan tampilan 
+/* prosedur untuk menampilkan tampilan register
+I.S : Tampilan untuk register kartu belum tercetak
+F.S : Tampilan untuk register kartu sudah tercetak
 */
 
 void displayTidakTerdaftar();
-
+/* Prosedur untuk menampilkan tampilan jika nomor rekening tidak terdaftaf saat log in
+I.S : Tampilan untuk nomor rekening tidak terdaftar belum tercetak 
+F.S : Tampilan untuk nomor rekening tidak terdaftar sudah tercetak 
+*/
 void displayMenuBahasa();
 /*prosedur untuk menampilkan tampilan menu pilih bahasa
 I.S : Tampilan menu bahasa belum tercetak
