@@ -1402,6 +1402,9 @@ int cek_ValiditasNorek(int bhs, char No_Rek[10]){
 				break;
 			}
 		}
+		if (betul == 1){
+			break;
+		}
 		b = b + 1;
 	}
 	return betul;
