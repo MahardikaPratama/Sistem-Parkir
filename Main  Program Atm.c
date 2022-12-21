@@ -616,7 +616,8 @@ int validasi_pin(char pin[7]){
 
 int cekvaliditasAkun(char No_Rek[10]){
 	int Valid;
-	for (int a=0; a<sizeof(user); a++){
+	int a = 0;
+	while (user[a].total_saldo != 0){
 		if(strcmp(No_Rek, user[a].No_Rekening)==0){
 			Valid = 1;
 			j = a;
@@ -625,10 +626,10 @@ int cekvaliditasAkun(char No_Rek[10]){
 		else{
 			Valid = 0;
 		}
+		a = a + 1;
 	}
 	return Valid;
 }
-
 
 	
 void menuBahasa(){
@@ -1387,21 +1388,18 @@ void MenuTransfer(int bhs,  char inputPin[7]){
 //Modul cek validitas no.rekening
 int cek_ValiditasNorek(int bhs, char No_Rek[10]){
 	int betul;
-	for (int b=0; b<sizeof(user); b++){
-		while (b!=j){
-			if(strcmp(No_Rek, user[b].No_Rekening)==0){
-		     		betul=1;
-		     	 	r= b;
-		     		break;
-		 	}
-		    	else {
-				betul=0;
-				break;
-			}
-		}
-		if (betul == 1){
+	int b = 0;
+	while (user[b].total_saldo != 0 && b!= j){
+		if(strcmp(No_Rek, user[b].No_Rekening)==0){
+	     		betul=1;
+	     	 	r= b;
+	     		break;
+	 	}
+    	else {
+			betul=0;
 			break;
 		}
+		b = b + 1;
 	}
 	return betul;
 }
