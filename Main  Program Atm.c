@@ -57,8 +57,11 @@ typedef struct{
 //Deklarasi Modul
 
 int validasi_tanggal(int hari, int bulan, int tahun);
+//function untuk mengembalikan nilai benar =1 jika tanggal yang diinputkan sesuai dengan tanggal yang ada(kalender), sebaliknya akan mengembalikan nilai benar=0, jika tanggal yang diinputkan tidak sesuai kalender.
 
 int validasi_pin(char pin[7]);
+//fungsi untuk mengembalikan nilai benar =1 jika pin yang diinput benar 6 digit, sebaliknya akan mengembalikan nilai benar =0 jika pin yang diinput tidak 6 digit
+
 
 int cekvaliditasAkun(char No_Rek[10]);
 // Fungsi untuk mengembalikan nilai valid=1 jika No_Rek dari akun sudah terdaftar, akan mengembalikan valid=0 jika akun belum terdaftar
@@ -70,19 +73,22 @@ void menuBahasa();
 	*/
 
 void enableKartu(int bhs, char inputPin[7]);
-
+/*Prosedur untuk meng-enable kartu jika kartu ATM ter-disable yang disebabkan karena salah menginputkan PIN ATM lebih dari tiga kali
+	I.S: Kartu ATM user ter-disable
+	F.S: Kartu ATM user sudah ter-enable
+	*/	
 int validasi_TanggalLahir(int hari, int bulan, int tahun, int *i, int bhs, char inputPin[7]);
-
+//function untuk mengembalikan nilai betul=1 jika tanggal lahir yang diinputkan sesuai dengan tanggal lahir yang diinputkan saat register, sebaliknya akan mengembalikan nilai betul =0 jika tanggal lahir yang diinputkan tidak sesuai 
 void MasukkanPin(int bhs); 
 /* Prosedur untuk meminta user untuk masuk ke menu masukkan pin
-	I.S: Menu masukkan pin belum ditampilkan
-	F.S: Menu masukkan pin sudah ditampilkan
+	I.S : User belum menginputkan PIN atm
+	F.S : User sudah menginputkan PIN atm 
 	*/
 	
 void bacaPin(char inputPin[7]); 
 /*Prosedur untuk membaca input PIN
-	I.S: Input PIN belum dibaca
-	F.S: Input PIN sudah dibaca
+	I.S: User belum mengetikkan PIN dari keyboard
+	F.S: User sudah mengetikkan PIN dari keyboard
 	*/
 
 int Cek_validitas( char inputPin[7], int Valid, int *i); 
@@ -91,8 +97,8 @@ int Cek_validitas( char inputPin[7], int Valid, int *i);
 	
 void MenuPenarikanCepat(int bhs, char inputPin[7]); 
 /* Prosedur untuk modul fitur Penarikan Cepat
-	I.S: Belum menampilkan menu fitur Penarikan Cepat
-	F.S: Sudah menampilkan menu fitur Penarikan Cepat
+	I.S: User belum memilih nominal yang ada pada fitur penarikan cepat 
+	F.S: User sudah memilih nominal yang ada pada fitur penarikan cepat 
 	*/
 
 int validitasTransaksi(int bhs, char inputPin[7]);
@@ -101,38 +107,38 @@ int validitasTransaksi(int bhs, char inputPin[7]);
 
 void MenuJumlahLain(int bhs, char inputPin[7]); 
 /* Prosedur untuk menu fitur Jumlah Lain
-	I.S: User menu fitur MenuJumlahLain
-	F.S: Sudah menampilkan menu fitur MenuJumlahLain
+	I.S: User belum menginputkan nominal jumlahlain
+	F.S: User sudah menginputkan nominal jumlahlain
 	*/
 
 void bacaJumlahLain(); 
 /*Prosedur untuk membaca input jumlah nominal yang akan ditarik
-	I.S: Input jumlah nominal belum dibaca
-	F.S: Input jumlah nominal sudah dibaca
+	I.S: User belum mengetikkan  jumlah nominal yang lain dari keyboard
+	F.S: User sudah mengetikkan  jumlah nominal yang lain dari keyboard
 	*/
 
 void MenuLainnya(int bhs, char inputPin[7]); 
 /*Prosedur untuk modul fitur Menu Lainnya
-	I.S: Belum menampilkan modul fitur Menu Lainnya
-	F.S: Sudah menampilkan modul fitur Menu Lainnya
+	I.S: User belum memilih fitur Menu Lainnya
+	F.S: User sudah memilih fitur Menu Lainnya
 	*/
 
 void MenuTransfer(int bhs, char inputPin[7]);
 /* Prosedur untuk modul fitur Menu Transfer
-	I.S: Belum menampilkan modul fitur Menu Transfer
-	F.S: Sudah menampilkan modul fitur Menu Transfer
+	I.S: User belum memilih fitur Menu Transfer
+	F.S: User sudah memilih fitur Menu Transfer
 	*/
 	
 void konfirmasitrf(int bhs, char inputPin[7]);
 /* Prosedur konfirmasi menampilkan data validitas transaksi transfer
-	I.S: Belum menampilkan data validitas transaksi transfer
-	F.S: Sudah menampilkan data validitas transaksi transfer
+	I.S: User belum melihat data validitas transaksi transfer
+	F.S: User sudah melihat data validitas transaksi transfer
 	*/
 
 void MenuKonfirmasi(int bhs, char inputPin[7]); 
 /* Prosedur konfirmasi dari proses transfer 
-	I.S: Belum konfirmasi transfer
-	F.S: Sudah konfirmasi transfer dengan ke menu selanjutnya
+	I.S: User belum melakukan konfirmasi transfer
+	F.S: User sudah melakukan konfirmasi transfer dengan kembali ke menu selanjutnya
 	*/
 
 int cek_ValiditasNorek(int bhs, char No_Rek[10]);
@@ -145,8 +151,8 @@ int cek_ValiditasTransfer(int admin);
 
 void Menu_setor(int bhs, char inputPin[7]);
 /* Prosedur untuk modul fitur Setor Tunai
-	I.S: Belum menampilkan modul fitur Setor Tunai
-	F.S: Sudah menampilkan modul fitur Setor Tunai
+	I.S: User belum melakukan Setor Tunai
+	F.S: User sudah melakukan Setor Tunai
 	*/
 	
 int cekvalid_setor();	
@@ -155,8 +161,8 @@ int cekvalid_setor();
 
 void bacasetorlagi(int bhs, char inputPin[7]);
 /*prosedur untuk menampilkan pilihan setor lagi atau tidak
-	I.S : Tampilan untuk pilihan setor lagi atau tidak belum tercetak
-	F.S : Tampilan untuk pilihan setor lagi atau tidak sudah tercetak
+	I.S : User belum melakukan pilihan setor lagi atau tidak 
+	F.S : User sudah melakukan pilihan setor lagi atau tidak 
 	*/
 
 void displayGagalMin(int bhs);
@@ -167,27 +173,27 @@ void displayGagalMin(int bhs);
 
 void MenuInformasiSaldo(int bhs, char inputPin[7]);
 /* Prosedur untuk modul dari fitur Menu Informasi Saldo
-	I.S: Belum menampilkan fitur Menu Informasi Saldo
-	F.S: Sudah menampilkan fitur Menu Informasi Saldo
+	I.S: User belum melakukan fitur Menu Informasi Saldo
+	F.S: User sudah melakukan fitur Menu Informasi Saldo
 	*/
 	
 
 void MenuUbahPin(int bhs, char inputPin[7]);
 /* Prosedur untuk modul dari fitur Menu Ubah PIN
-	I.S: Belum menampilkan fitur Menu Ubah PIN
-	F.S: Sudah menampilkan fitur Menu Ubah PIN
+	I.S: User belum mengubah PIN
+	F.S: User sudah mengubah PIN
 	*/
 
 void InputPinLama(int bhs, char inputPin[7]);
 /* Prosedur untuk modul memasukkan PIN Lama
-	I.S: Belum menginput dan cek validitas PIN lama
-	F.S: Sudah menginput dan cek validitas PIN lama
+	I.S: User belum menginput dan cek validitas pin lama
+	F.S: User sudah menginput dan cek validitas PIN lama
 	*/
 	
 void bacaKonfirmasiPinBaru(char konfirmasiPin[7], int bhs);
 /* Prosedur untuk menginput konfirmasi PIN Baru
-	I.S: Input konfirmasi PIN Baru belum dibaca
-	F.S: Input konfirmasi PIN Baru sudah dibaca
+	I.S: User belum menginput konfirmasi PIN Baru 
+	F.S: User sudah menginput konfirmasi PIN Baru 
 	*/
 	
 int Cek_validitasPinBaru(char inputPinBaru[7], char konfirmasiPin[7], int *i, int bhs, char inputPin[7]);
@@ -196,14 +202,14 @@ int Cek_validitasPinBaru(char inputPinBaru[7], char konfirmasiPin[7], int *i, in
 	
 void MasukkanPinBaru(int bhs, char inputPin[7]);
 /* Prosedur untuk modul perintah menginput PIN Baru
-	I.S: Belum menginput dan cek validitas PIN Baru
-	F.S: Sudah menginput dan cek validitas PIN Baru
+	I.S: User belum menginput dan cek validitas PIN Baru
+	F.S: User sudah menginput dan cek validitas PIN Baru
 	*/
 
 void LihatMutasi(int bhs);
 /*prosedur untuk menampilkan mutasi rekening
-	I.S : Mutasi rekening belum ditampilkan
-	F.S : Mutasi rekening sudah ditampilkan
+	I.S : User belum melihat mutasi
+	F.S : User sudah melihat mutasi
 	*/
 	
 void gotoxy(int x, int y);
@@ -432,16 +438,37 @@ void displayAkunBerhasil();
 	 */
   
 void displayAkunDisable(int bhs);
+/*Prosedur untuk menampilkan jika kartu ter-disable
+	 I.S: tampilan untuk kartu ter-disable belum ditampilkan
+	 F.S: tampilan untuk kartu ter-disable sudah ditampilkan
+	 */
  
 void displayEnableTanggalLahir(int bhs);
- 
+ /*Prosedur untuk menampilkan jika kartu ingin di-enable
+	 I.S: tampilan untuk enable kartu belum ditampilkan
+	 F.S: tampilan untuk enable kartu sudah ditampilkan
+	 */
 void displayEnableTanggalLahirSalah3x(int bhs);
-
+/*Prosedur untuk menampilkan jika salah menginputkan tanggal lahir lebih dari 3 kali
+	 I.S: tampilan untuk kesalahan input tanggal lahir belum ditampilkan
+	 F.S: tampilan untuk kesalahan input tanggal lahir sudah ditampilkan
+	 */
 void displayEnableBerhasil(int bhs);
-
+/*Prosedur untuk menampilkan jika kartu berhasil di-enable
+	 I.S: tampilan untuk kartu berhasil di-enable belum ditampilkan
+	 F.S: tampilan untuk kartu berhasil di-enable sudah ditampilkan
+	 */
 void displayEnableGagal(int bhs);
-
+/*Prosedur untuk menampilkan jika kartu gagal di-enable
+	 I.S: tampilan untuk kartu jika gagal di-enable belum ditampilkan
+	 F.S: tampilan untuk kartu jika gagal di-enable sudah ditampilkan
+	 */
 void displayEnable(int bhs);
+/*Prosedur untuk menampilkan tampilan enable kartu
+	 I.S: tampilan untuk enable kartu belum ditampilkan
+	 F.S: tampilan untuk enable kartu sudah ditampilkan
+	 */
+
 //Deklarasi variabel Global
 
 //Inisialisasi Data User
