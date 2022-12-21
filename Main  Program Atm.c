@@ -491,7 +491,7 @@ int main(){
 	int i, z, t;
 	int opsi;
 	int benar;
-	char No_Rek[11];
+	char No_Rek[10];
 	char Nama[30];
 	char inputPin [7];
 	char Bank[10];
