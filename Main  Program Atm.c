@@ -548,6 +548,7 @@ int main(){
 							strcpy (user[i].No_Rekening, No_Rek);
 							strcpy (user[i].Nama, Nama);
 							strcpy (user[i].Pin,inputPin);
+							strcpy (user[i].Bank, strupr(Bank));
 							user[i].total_saldo = 100000;
 							user[i].Tanggal_Lahir.day = hari;
 							user[i].Tanggal_Lahir.month = bulan;
@@ -1389,15 +1390,17 @@ void MenuTransfer(int bhs,  char inputPin[7]){
 int cek_ValiditasNorek(int bhs, char No_Rek[10]){
 	int betul;
 	int b = 0;
-	while (user[b].total_saldo != 0 && b!= j){
-		if(strcmp(No_Rek, user[b].No_Rekening)==0){
-	     		betul=1;
-	     	 	r= b;
-	     		break;
-	 	}
-    	else {
-			betul=0;
-			break;
+	while (user[b].total_saldo != 0){
+		while (b!= j){
+			if(strcmp(No_Rek, user[b].No_Rekening)==0){
+		     		betul=1;
+		     	 	r= b;
+		     		break;
+		 	}
+	    	else {
+				betul=0;
+				break;
+			}
 		}
 		b = b + 1;
 	}
