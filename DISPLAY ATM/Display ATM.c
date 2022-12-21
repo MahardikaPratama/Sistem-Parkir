@@ -3,11 +3,36 @@
 
 //Type Data Bentukan
 typedef struct{
+	int day, month, years;
+}Date;
+
+typedef struct{
+	char NoRek[100][10];
+	char NamaUser[100][30];
+	char NamaBank[100][10];
+	int sizeTransaksi;
+	int nominal[100];
+	int transaksi[100];
+	int k;
+}Mutasi;
+
+typedef struct{
+	int limit_penarikan;
+	int limit_transfer;
+	int limit_setor;
+}limit;
+
+//Data Nasabah
+typedef struct{
 	char No_Rekening[10];
    	char Nama[30];
-    	char Pin[7];
-	char Bank[4];
+   	char Pin[7];
+	char Bank[10];
 	int total_saldo;
+	Date Tanggal_Lahir;
+	char Status[7];
+	Mutasi Riwayat;
+	limit batas;
 }Nasabah;
 
 void gotoxy(int x, int y);
