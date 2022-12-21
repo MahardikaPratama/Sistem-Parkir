@@ -19,7 +19,7 @@ Petunjuk Penggunaan dan Bagaimana aplikasi digunakan pada Program ini, adalah se
 
 8. Pada menu cek informasi saldo, user dapat melihat jumlah saldo yang dimiliki user.
 
-9.Pada menu ubah pin, user akan diminta untuk menginputkan pin lama. Jika sudah valid, user akan diminta untuk menginputkan pin baru. Setelah itu user harus menginputkan kembali pin baru tadi. Jika sudah valid, maka pin sudah berhasil diganti.
+  9.Pada menu ubah pin, user akan diminta untuk menginputkan pin lama. Jika sudah valid, user akan diminta untuk menginputkan pin baru. Setelah itu user harus menginputkan kembali pin baru tadi. Jika sudah valid, maka pin sudah berhasil diganti.
 
 10. Jika status kartu user disable dan ingin meng-enable, maka user diharuskan memasukkan tanggal lahir yang sesuai dengan data user pada kartu ATM dan mengganti PIN lama user. 
 
