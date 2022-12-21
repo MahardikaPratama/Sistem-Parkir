@@ -1759,7 +1759,7 @@ void LihatMutasi(int bhs){
 			printf("\n| Mutation List		   |");
 			printf("\n|--------------------------|");
 		}
-		for(i=user[j].Riwayat.sizeTransaksi-1; i>=user[j].Riwayat.sizeTransaksi-3; i--){
+		for(i=user[j].Riwayat.sizeTransaksi-1; i>=user[j].Riwayat.sizeTransaksi-5; i--){
 			cetakMutasi(bhs, &i);
 		}
 		printf("\n|--------------------------|");
