@@ -224,19 +224,20 @@ F.S : Tampilan untuk riwayat mutasi rekeningpermintaan konfirmasi pin baru sudah
  void displayAkunBerhasil();
 
 //Deklarasi variabel Global
+
+//Inisialisasi Data User
 Nasabah user[100] = {
-			{.No_Rekening="221524044",.Nama="Mahardika",.Pin="123456",.Bank = "BRI", .total_saldo=1000000},
-			{.No_Rekening="221524043",.Nama="Keanu",.Pin="111111",.Bank = "BCA", .total_saldo=20000},
-			{.No_Rekening="221524057",.Nama="Reza",.Pin="123123",.Bank = "BNI", .total_saldo=50000},
-};	
-//variabel untuk index nominal
-int k;
+			{.No_Rekening="221524044",.Nama="Mahardika",.Pin="123456",.Bank = "BRI", .total_saldo=20000000, .Tanggal_Lahir.day =17, .Tanggal_Lahir.month = 8, .Tanggal_Lahir.years =2003, .Status = "ENABLE", .Riwayat.sizeTransaksi = 0, .Riwayat.k = 0, .batas.limit_penarikan = 0, .batas.limit_transfer = 0, .batas.limit_setor = 0},
+			{.No_Rekening="221524043",.Nama="Keanu",.Pin="111111",.Bank = "BCA", .total_saldo=5000000, .Tanggal_Lahir.day =31, .Tanggal_Lahir.month = 07, .Tanggal_Lahir.years =2004, .Status = "ENABLE", .Riwayat.sizeTransaksi = 0, .Riwayat.k = 0, .batas.limit_penarikan = 0, .batas.limit_transfer = 0, .batas.limit_setor = 0},    
+			{.No_Rekening="221524057",.Nama="Reza",.Pin="123123",.Bank = "BRI", .total_saldo=50000, .Tanggal_Lahir.day =24, .Tanggal_Lahir.month = 05, .Tanggal_Lahir.years =2004, .Status = "DISABLE", .Riwayat.sizeTransaksi = 0, .Riwayat.k = 0, .batas.limit_penarikan = 0, .batas.limit_transfer = 0, .batas.limit_setor = 0},
+		};                                                                                                                                                                                         
+			
 //variabel untuk index user
 int j;
 //variabel untuk index penerima
 int r;
 //variabel global untuk data uang atm
-int saldo_ATM = 5000000;
+int saldo_ATM = 50000000;
 
 int main(){
 	system ("color 1F"); //syntak untuk mengubah warna di cmd
